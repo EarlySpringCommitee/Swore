@@ -14,25 +14,23 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
             if (i[3] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("排名人數"));
         }
 
-        function generateScoreRow(subject, exams = examSelections) {
+        function generateScoreRow(subject) {
             let newRow = table.appendChild(document.createElement('tr'));
             newRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(subject));
-            let j = [];
-            for (let i of exams) {
-                if (Number.isInteger(i)) j.push(Object.values(data)[i]);
-                else if (i in data) j.push(data[i]);
-            }
-            exams = j;
-            for (let i of exams) { //
-                if (Array.isArray(i[subject])) {
-                    for (let index in i[subject]) {
-                        let j = scoreSelections;
-                        if (j[index] != '0') newRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(i[subject][index]));
+            examDatas = examSelections.map(i => {
+                if (Number.isInteger(i)) return Object.values(data)[i];
+                else if (i in data) return data[i];
+                else return undefined;
+            });
+            for (let examData of examsDatas) { //
+                if (Array.isArray(examData[subject])) {
+                    for (let index in examData[subject]) {
+                        if (scoreSelections[index] != '0') newRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(examData[subject][index]));
                     }
                 } else {
-                    let j = newRow.appendChild(document.createElement('td'));
-                    j.colSpan = rowScoreLength.toString();
-                    j.appendChild(document.createTextNode(i[subject]));
+                    let td = newRow.appendChild(document.createElement('td'));
+                    td.colSpan = rowScoreLength.toString();
+                    td.appendChild(document.createTextNode(examData[subject]));
                 }
             }
         }
