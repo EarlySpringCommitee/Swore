@@ -7,11 +7,10 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
         let rowScoreLength = scoreSelections.filter(i => i != '0').length;
 
         function generateFirstRow(exam) {
-            let i = scoreSelections;
-            if (i[0] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(exam));
-            if (i[1] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("平均"));
-            if (i[2] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("排名"));
-            if (i[3] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("排名人數"));
+            if (scoreSelections[0] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(exam));
+            if (scoreSelections[1] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("平均"));
+            if (scoreSelections[2] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("排名"));
+            if (scoreSelections[3] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("排名人數"));
         }
 
         function generateScoreRow(subject) {
