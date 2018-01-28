@@ -22,7 +22,7 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
                 else if (i in data) return data[i];
                 else return undefined;
             });
-            for (let examData of examsDatas) { //
+            for (let examData of examDatas) { //
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
                         if (scoreSelections[index] != '0') newRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(examData[subject][index]));
