@@ -36,16 +36,16 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
                 }
             }
         }
-        for (let i of examSelections) {
+        for (let examSelection of examSelections) {
             let exam;
-            if (Number.isInteger(i)) exam = Object.keys(data)[i];
-            else if (i in data) exam = i;
+            if (Number.isInteger(examSelection)) exam = Object.keys(data)[examSelection];
+            else if (examSelection in data) exam = examSelection;
             generateFirstRow(exam);
         }
-        for (let i of subjectSelections) {
+        for (let subjectSelection of subjectSelections) {
             let subject;
-            if (Number.isInteger(i)) subject = Object.keys(Object.values(data)[0])[i];
-            else if (i in Object.values(data)[0]) subject = i;
+            if (Number.isInteger(subjectSelection)) subject = Object.keys(Object.values(data)[0])[subjectSelection];
+            else if (subjectSelection in Object.values(data)[0]) subject = subjectSelection;
             generateScoreRow(subject);
         }
         return table;
