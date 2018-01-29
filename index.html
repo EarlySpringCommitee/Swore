@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ㄒㄓㄍㄓ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" rel="stylesheet">
+    <link href="//xiaoan.tocas-ui.com/ts.xiaoan.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/ripple.min.css" rel="stylesheet">
+    <link href="/icon/ㄒㄓㄍㄓ.png" rel="shortcut icon">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
+    <script src="/js/ripple.min.js"></script>
+    <script src="/js/JsonToTable.js"></script>
+    <script src="/js/data.json"></script>
+    <script src="/js/script.js"></script>
+  </head>
+</html>
+<body>
+  <header class="ts heading vertically padded fluid slate">
+    <div class="image">
+      <script>
+        var perviewImg = Trianglify({
+            width: 2560,
+            height: 2560,
+            stroke_width: 200,
+            cell_size: 100,
+        });
+        document.write('<img src="' + perviewImg.png() + '">');
+      </script>
+    </div>
+    <div class="ts container">
+      <h1 class="ts center aligned header">ㄒㄓㄍㄓ</h1>
+    </div>
+  </header>
+  <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
+    <div class="ts container"><a class="item" href="#">首頁</a></div>
+  </div>
+  <div class="ts container">
+    <h3 class="ts header">成績
+      <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
+    </h3>
+    <div class="gs scroll">
+      <table class="ts definition compact striped celled table" id="score"></table>
+    </div><br>
+  </div>
+  <footer class="ts container">
+    <div class="ts section divider"></div>
+    <p>棒棒勝 2018 (・∀・)</p>
+  </footer><br>
+</body>
