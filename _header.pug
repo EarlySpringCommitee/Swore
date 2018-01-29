@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title 新竹高中成績系統
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css',rel='stylesheet')
+        link(href='//xiaoan.tocas-ui.com/ts.xiaoan.min.css',rel='stylesheet')
+        link(href='//fonts.googleapis.com/css?family=Roboto+Mono',rel='stylesheet')
+        link(href='/css/style.css',rel='stylesheet')
+        link(href='/css/ripple.min.css',rel='stylesheet')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+        script(src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js")
+        script(src='/js/ripple.min.js')
+        script(src='/js/script.js')
+        script(src='/js/JsonToTable.js')
+        if(originalURL)
+            script console.log('originalURL
+                =originalURL
+                |')
+    body
+        header.ts.heading.vertically.padded.fluid.slate
+            .image
+                script.
+                    var perviewImg = Trianglify({
+                        width: 2560,
+                        height: 2560,
+                        stroke_width: 200,
+                        cell_size: 100,
+                    });
+                    document.write('<img src="' + perviewImg.png() + '">');
+            .ts.container
+                h1.ts.center.aligned.header 新竹高中成績系統
