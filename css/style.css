@@ -69,18 +69,14 @@ header {
     成績
 ==========*/
 
-#score tr:nth-child(1)>td,
-#day tr:nth-child(1)>td,
-#total tr:nth-child(1)>td {
+#score tr:nth-child(1)>td {
     background: #f7f7f7;
     font-weight: 500;
     color: #404040;
     font-size: 1em;
 }
 
-#score td.score,
-#total td.score,
-#total tr:nth-child(1n+2) td:nth-child(1n+2) {
+#score tr:nth-child(1n+2) td:nth-child(1n+2) {
     font-family: 'Roboto Mono', monospace !important;
 }
 
@@ -104,33 +100,4 @@ header {
 
 .gs.scroll .ts.buttons .button {
     white-space: nowrap;
-}
-
-
-/*=============
-    文章內文
-=============*/
-
-#content,
-#content * {
-    font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", "Microsoft JhengHei", wf_SegoeUI, "Segoe UI", Segoe, "Segoe WP", Tahoma, Verdana, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, 微軟正黑體, "LiHei Pro", "WenQuanYi Micro Hei", "Droid Sans Fallback", "AR PL UMing TW", Roboto, "Helvetica Neue", "Hiragino Maru Gothic ProN", メイリオ, "ヒラギノ丸ゴ ProN W4", Meiryo, "Droid Sans", sans-serif !important;
-    font-size: 16px !important;
-    background-color: rgba(0, 0, 0, 0) !important;
-    color: rgb(80, 80, 80) !important;
-    box-shadow: 0 0 rgba(0, 0, 0, 0) !important;
-}
-
-#content a,
-#content a * {
-    color: rgb(93, 73, 171) !important;
-}
-
-#content a:hover,
-#content a:hover * {
-    color: rgb(76, 60, 141) !important;
-}
-
-#content a:active,
-#content a:active * {
-    color: rgb(51, 41, 94) !important;
 }
