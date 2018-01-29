@@ -33,28 +33,6 @@ $(document).ready(function() {
 
         easing: 'linear' // The CSS3 easing function of the ripple
     });
-    $('#search').keypress(function(e) {
-        if (e.which == 13) {
-            search()
-        }
-    });
-
-    $('#content table').attr("style", "")
-    $('#content table').attr("class", "ts celled table")
-    $('#content td').attr("style", "")
-    $('#content img').attr('src', function() {
-        var osrc = $(this).attr('src')
-        return 'http://web.tlhc.ylc.edu.tw' + osrc
-    })
-    $('#content img').attr("style", "")
-    $('#content img').attr("class", "ts centered rounded image")
+    let owo = createScoreTable('s', data['s']);
+    $("#score").html(owo)
 });
-
-function search() {
-    var search = document.getElementById('search').value
-    if (!search) {
-        alert("未輸入任何內容")
-        return
-    }
-    location.href = '/tlhc/search/' + search
-}

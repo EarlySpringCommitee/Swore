@@ -1,6 +1,6 @@
 function createScoreTable(mode, data, examSelections = Object.keys(data), subjectSelections = Object.keys(Object.values(data)[0], scoreSelections = '1110')) {
     function s() {
-        let table = document.createElement("table");
+        let table = document.createElement("tbody");
         let firstRow = table.appendChild(document.createElement('tr'));
         firstRow.appendChild(document.createElement('td'));
         scoreSelections = scoreSelections.split('').concat(['0', '0', '0', '0']);

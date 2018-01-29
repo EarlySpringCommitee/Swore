@@ -13,6 +13,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
     <script src="/js/ripple.min.js"></script>
     <script src="/js/JsonToTable.js"></script>
+    <script src="/js/data.json"></script>
     <script src="/js/script.js"></script>
   </head>
 </html>
@@ -36,7 +37,14 @@
   <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
     <div class="ts container"><a class="item" href="#">首頁</a></div>
   </div>
-  <div class="ts container"></div>
+  <div class="ts container">
+    <h3 class="ts header">成績
+      <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
+    </h3>
+    <div class="gs scroll">
+      <table class="ts definition compact striped celled table" id="score"></table>
+    </div><br>
+  </div>
   <footer class="ts container">
     <div class="ts section divider"></div>
     <p>棒棒勝 2018 (・∀・)</p>
