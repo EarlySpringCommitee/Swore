@@ -78,10 +78,6 @@ header {
     font-size: 1em;
 }
 
-#score tr:last-child {
-    display: none;
-}
-
 #score td.score,
 #total td.score,
 #total tr:nth-child(1n+2) td:nth-child(1n+2) {
@@ -108,16 +104,6 @@ header {
 
 .gs.scroll .ts.buttons .button {
     white-space: nowrap;
-}
-
-
-/* hide trash */
-
-#score td:nth-child(4),
-#total td:nth-child(4),
-#score td:nth-child(7),
-#total td:nth-child(7) {
-    display: none;
 }
 
 
