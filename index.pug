@@ -1,5 +1,17 @@
 include _header.pug
-include _nav.pug
--var title='owowo'
-.ts.container
-include _footer.pug
+body
+    header.ts.heading.vertically.padded.fluid.slate
+        .image
+            script.
+                var perviewImg = Trianglify({
+                    width: 2560,
+                    height: 2560,
+                    stroke_width: 200,
+                    cell_size: 100,
+                });
+                document.write('<img src="' + perviewImg.png() + '">');
+        .ts.container
+            h1.ts.center.aligned.header 新竹高中成績系統
+    include _nav.pug
+    .ts.container
+    include _footer.pug
