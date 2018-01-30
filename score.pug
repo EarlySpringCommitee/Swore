@@ -1,6 +1,6 @@
 include _header.pug
 body
-    header#welcome.ts.heading.vertically.padded.center.aligned.fluid.huge.slate
+    header.ts.heading.vertically.padded.fluid.slate
         .image
             script.
                 var perviewImg = Trianglify({
@@ -11,12 +11,14 @@ body
                 });
                 document.write('<img src="' + perviewImg.png() + '">');
         .ts.container
-            .header 尼好
-            .description 這是個能夠美觀地呈現成績資料的可愛網站
-            .action 
-                a.ts.button.inverted(href='login.html') 登入
+            h1.ts.center.aligned.header Swore
     include _nav.pug
     .ts.container
-        h3.ts.header 一些介紹
-        p blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah
+        h3.ts.header 成績
+            .sub.header 若無法看見完整內容可利用 
+                kbd Shift+滾輪
+                |  或是手指來移動
+        .gs.scroll
+            table#score.ts.definition.compact.striped.celled.table
+        br
     include _footer.pug

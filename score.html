@@ -19,7 +19,7 @@
   </head>
 </html>
 <body>
-  <header class="ts heading vertically padded center aligned fluid huge slate" id="welcome">
+  <header class="ts heading vertically padded fluid slate">
     <div class="image">
       <script>
         var perviewImg = Trianglify({
@@ -32,9 +32,7 @@
       </script>
     </div>
     <div class="ts container">
-      <div class="header">尼好</div>
-      <div class="description">這是個能夠美觀地呈現成績資料的可愛網站</div>
-      <div class="action"> <a class="ts button inverted" href="login.html">登入</a></div>
+      <h1 class="ts center aligned header">Swore</h1>
     </div>
   </header>
   <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
@@ -43,8 +41,12 @@
     </div>
   </div>
   <div class="ts container">
-    <h3 class="ts header">一些介紹</h3>
-    <p>blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</p>
+    <h3 class="ts header">成績
+      <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
+    </h3>
+    <div class="gs scroll">
+      <table class="ts definition compact striped celled table" id="score"></table>
+    </div><br>
   </div>
   <footer class="ts container">
     <div class="ts section divider"></div>

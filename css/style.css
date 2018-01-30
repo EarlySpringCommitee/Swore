@@ -16,6 +16,28 @@ header {
     padding-bottom: calc(4em + 48px) !important;
 }
 
+header .header {
+    line-height: 1.4em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+header .description {
+    line-height: 1.1em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+header#welcome {
+    font-size: 32px;
+    height: calc(100vh + 48px);
+    padding: 5.4em 1em !important;
+}
+
+header#welcome .action .button {
+    font-size: 20px;
+    line-height: 1em;
+    text-shadow: none;
+}
+
 
 /*==========
     NAV
