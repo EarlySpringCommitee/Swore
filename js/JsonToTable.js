@@ -48,8 +48,18 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
         }
         return table;
     }
+
     switch (mode) {
         case 's':
             return s();
+    }
+}
+
+function fillInfoIn(data){
+    for (let i of document.getElementsByName('name')){
+        i.textContent = data['name'];
+    }
+    for (let i of document.getElementsByName('studentId')){
+        i.textContent = data['studentId'];
     }
 }
