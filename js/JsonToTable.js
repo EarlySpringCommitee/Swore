@@ -62,4 +62,7 @@ function fillInfoIn(data){
     for (let i of document.getElementsByName('studentId')){
         i.textContent = data['studentId'];
     }
+    for (let i of document.getElementsByName('class')){
+        i.textContent = data['class'];
+    }
 }
