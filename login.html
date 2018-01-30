@@ -40,16 +40,43 @@
       <div class="right fitted item"><a class="item" href="login.html">登入</a></div>
     </div>
   </div>
+  <script src="/js/login.js"></script>
   <div class="ts container">
-    <h3 class="ts header">成績
-      <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
-    </h3>
-    <div class="gs scroll">
-      <table class="ts definition compact striped celled table" id="score"></table>
-    </div><br>
+    <h1 class="ts center aligned header">嗨！
+      <div class="sub header">輸入您的學號及身分證字號並開始使用</div>
+    </h1>
+    <div class="ts centered secondary segment" id="login">
+      <form class="ts form" method="post" role="form" onsubmit="return check()">
+        <div class="field">
+          <label>學校</label>
+          <div class="ts stackable dropdowns">
+            <select class="ts basic dropdown" id="userSchool" name="userSchool" required>
+              <option value="hchs">新竹高中</option>
+              <option value="tlhc">斗六家商</option>
+              <option value="chgsh">彰化女中</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>帳號 / 學號</label>
+          <input type="text" placeholder="" id="userID" name="userID" required>
+        </div>
+        <div class="field">
+          <label>密碼 / 身分證字號</label>
+          <input type="password" placeholder="" id="userPASS" name="userPASS" style="text-transform:uppercase;" required>
+        </div>
+        <div class="field">
+          <div class="ts checkbox">
+            <input type="checkbox" id="isRmbPwd" name="isRmbPwd">
+            <label for="isRmbPwd">記住我</label>
+          </div>
+        </div>
+        <button class="ts positive fluid button" type="submit">登入</button>
+      </form>
+    </div>
   </div>
-  <footer class="ts container">
-    <div class="ts section divider"></div>
-    <p>棒棒勝 2018 (・∀・)</p>
-  </footer><br>
 </body>
+<footer class="ts container">
+  <div class="ts section divider"></div>
+  <p>棒棒勝 2018 (・∀・)</p>
+</footer><br>

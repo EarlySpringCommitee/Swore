@@ -2,6 +2,10 @@ kbd {
     font-family: 'Roboto Mono', monospace !important;
 }
 
+#login {
+    max-width: 400px;
+}
+
 
 /*===========
     Header
