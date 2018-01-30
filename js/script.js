@@ -33,6 +33,4 @@ $(document).ready(function() {
 
         easing: 'linear' // The CSS3 easing function of the ripple
     });
-    let owo = createScoreTable('s', data['s']);
-    $("#score").html(owo)
 });
