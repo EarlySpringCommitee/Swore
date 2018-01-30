@@ -14,6 +14,19 @@ body
             h1.ts.center.aligned.header Swore
     include _nav.pug
     .ts.container
+        h3.ts.header 基本資料
+            .sub.header 確定資料是不是你的（？
+        .ts.stackable.three.cards
+            mixin card(header,description,icon)
+                .ts.card
+                    .content
+                        .header= header
+                        .description= description
+                    .symbol
+                        i.icon(class=icon)
+            +card('學號','548787','qrcode')
+            +card('姓名','洨洨安','user')
+            +card('班級','一年洨班','student')
         h3.ts.header 成績
             .sub.header 若無法看見完整內容可利用 
                 kbd Shift+滾輪
