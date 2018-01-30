@@ -84,6 +84,20 @@ header {
     box-shadow: 0 5px 10px 1px rgba(167, 167, 167, 0.2);
 }
 
+.gs.scroll.non-style {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    border: 0px solid #e9e9e9;
+}
+
+.gs.scroll>table {
+    min-width: 2400px;
+    border: 0px solid #e9e9e9;
+}
+
+.gs.scroll .ts.buttons .button {
+    white-space: nowrap;
+}
+
 
 /*卷軸*/
 
@@ -108,18 +122,4 @@ header {
 
 .gs.scroll::-webkit-scrollbar-thumb:active {
     background-color: #4b7baa;
-}
-
-.gs.scroll.non-style {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    border: 0px solid #e9e9e9;
-}
-
-.gs.scroll>table {
-    min-width: 1900px;
-    border: 0px solid #e9e9e9;
-}
-
-.gs.scroll .ts.buttons .button {
-    white-space: nowrap;
 }
