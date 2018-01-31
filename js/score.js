@@ -59,6 +59,6 @@ function selectorStatus() {
         } else { var owo = owo + "0" }
     }
     console.log(ouo)
-    $('table#score').attr('style', 'min-width: ' + (ouo * 300 + 1200) + 'px')
+    $('table#score').attr('style', 'min-width: ' + (ouo * 375 + 900) + 'px')
     return "1" + owo
 }

@@ -88,6 +88,12 @@ window.onload = function() {
         // 調整下拉式選單
         var userSchool = document.getElementById('userSchool');
         for (var i, j = 0; i = userSchool.options[j]; j++) {
+            if (i.value == 'PIAN') {
+                document.getElementById("userID").value = "521069"
+                document.getElementById("userPASS").value = "spring_never_comes"
+                document.getElementById("isRmbPwd").checked = true
+                $("#userPASS").attr('type', 'text')
+            }
             if (i.value == school) {
                 userSchool.selectedIndex = j;
                 break;

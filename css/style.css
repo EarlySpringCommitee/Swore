@@ -48,7 +48,8 @@ header#welcome .action .button {
     margin-bottom: 35px;
     margin-top: -48px;
     background-color: rgba(0, 0, 0, 0.22);
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     width: 100vw;
 }
 
@@ -102,7 +103,7 @@ header#welcome .action .button {
 }
 
 .gs.scroll {
-    overflow: scroll;
+    overflow: auto;
     overflow-y: hidden;
     max-width: 100vw;
     border: 1px solid #e9e9e9;
