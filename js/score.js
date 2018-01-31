@@ -5,6 +5,7 @@ window.onload = function() {
     if (!username || !password || !school) {
         returnToLogin()
     }
+    $("#loader .loader").text('請求中')
     $.post("http://api.twscore.ml:5000/" + school, {
         account: username,
         password: password,
@@ -16,15 +17,16 @@ window.onload = function() {
         let owo = createScoreTable('s', ajaxdata['s']);
         $("#score").html(owo)
         fillInfoIn(ajaxdata['i'])
+        $("#loader").removeClass('active')
     }).fail(function() {
         returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
     });
-    $("#scoreSelections .button").addClass('active')
+    $("#scoreSelections .button").addClass('spring')
     $("#scoreSelections .button").click(function() {
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active')
+        if ($(this).hasClass('spring')) {
+            $(this).removeClass('spring')
         } else {
-            $(this).addClass('active')
+            $(this).addClass('spring')
         }
         let owo = createScoreTable('s', ajaxdata['s'], selectorStatus());
         $("#score").html(owo)
@@ -48,10 +50,15 @@ function returnToLogin(message, icon) {
 
 function selectorStatus() {
     var owo = ''
+    var ouo = 0
     var qaq = $("#scoreSelections .button").length
     for (i = 1; i < qaq + 1; i++) {
-        if ($("#scoreSelections .button:nth-child(" + i + ")").hasClass('active')) var owo = owo + "1"
-        else var owo = owo + "0"
+        if ($("#scoreSelections .button:nth-child(" + i + ")").hasClass('spring')) {
+            var owo = owo + "1"
+            var ouo = ouo + 1
+        } else { var owo = owo + "0" }
     }
+    console.log(ouo)
+    $('table#score').attr('style', 'min-width: ' + (ouo * 300 + 1200) + 'px')
     return "1" + owo
 }

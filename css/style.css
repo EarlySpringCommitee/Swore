@@ -86,6 +86,10 @@ header#welcome .action .button {
     成績
 ==========*/
 
+.ts.button.spring {
+    box-shadow: 0 0 19px #87bdff;
+}
+
 #score tr:nth-child(1)>td {
     background: #f7f7f7;
     font-weight: 500;

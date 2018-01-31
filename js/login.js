@@ -104,4 +104,14 @@ window.onload = function() {
         sessionStorage.removeItem('loginMessage');
         sessionStorage.removeItem('loginMessageIcon');
     }
+    //自動填入洨安高中
+    $("select#userSchool").change(function() {
+        $("#userPASS").attr('type', 'password')
+        if ($(this).val() == 'PIAN') {
+            document.getElementById("userID").value = "521069"
+            document.getElementById("userPASS").value = "spring_never_comes"
+            document.getElementById("isRmbPwd").checked = true
+            $("#userPASS").attr('type', 'text')
+        }
+    });
 }
