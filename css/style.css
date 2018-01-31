@@ -27,13 +27,13 @@ header .description {
 }
 
 header#welcome {
-    font-size: 32px;
+    font-size: 24px;
     height: calc(100vh + 48px);
-    padding: 5.4em 1em !important;
+    padding: 30vh 1em !important;
 }
 
 header#welcome .action .button {
-    font-size: 20px;
+    font-size: 12px;
     line-height: 1em;
     text-shadow: none;
 }

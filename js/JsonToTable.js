@@ -55,14 +55,20 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
     }
 }
 
-function fillInfoIn(data){
-    for (let i of document.getElementsByName('name')){
+function fillInfoIn(data) {
+
+    $("[data-student=\"name\"]").text(data['name'])
+    $("[data-student=\"studentId\"]").text(data['studentId'])
+    $("[data-student=\"class\"]").text(data['class'])
+
+    /*for (let i of document.getElementsByName('name')) {
         i.textContent = data['name'];
     }
-    for (let i of document.getElementsByName('studentId')){
+    for (let i of document.getElementsByName('studentId')) {
         i.textContent = data['studentId'];
     }
-    for (let i of document.getElementsByName('class')){
+    for (let i of document.getElementsByName('class')) {
         i.textContent = data['class'];
-    }
+        conaole.log(data['class'])
+    }*/
 }

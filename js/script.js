@@ -33,4 +33,17 @@ $(document).ready(function() {
 
         easing: 'linear' // The CSS3 easing function of the ripple
     });
+    $("a.ts.button[href=\"#login\"").click(function() {
+        $("header#welcome").attr('style', `height: 221px !important;
+        padding: 5em 2em !important;
+        padding-bottom: calc(4em + 48px) !important;
+        font-size: 14px;`)
+        $("header#welcome .header").attr('style', `font-size: 2.65rem;`).html('Swore')
+        $("header#welcome .description").attr('style', 'display: none;')
+        $("header#welcome .action").attr('style', 'display: none;')
+        $('body').addClass('animated bounceOutUp')
+
+        setTimeout("document.location.href = \"login.html\"", 170)
+
+    });
 });
