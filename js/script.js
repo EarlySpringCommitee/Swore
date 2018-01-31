@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 function headerImg() {
     if (window.sessionStorage["headerImg"]) {
-        document.write('<img src="' + window.sessionStorage["headerImg"] + '">');
+        var headerImg = window.sessionStorage["headerImg"]
     } else {
         var perviewImg = Trianglify({
             width: 2560,
@@ -58,7 +58,8 @@ function headerImg() {
             stroke_width: 200,
             cell_size: 100,
         });
-        document.write('<img src="' + perviewImg.png() + '">');
-        window.sessionStorage["headerImg"] = perviewImg.png()
+        var headerImg = perviewImg.png()
+        window.sessionStorage["headerImg"] = headerImg
     }
+    document.write('<img src="' + headerImg + '">');
 }
