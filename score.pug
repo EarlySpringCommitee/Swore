@@ -2,14 +2,7 @@ include _header.pug
 body
     header.ts.heading.vertically.padded.fluid.slate
         .image
-            script.
-                var perviewImg = Trianglify({
-                    width: 2560,
-                    height: 2560,
-                    stroke_width: 200,
-                    cell_size: 100,
-                });
-                document.write('<img src="' + perviewImg.png() + '">');
+            script headerImg()
         .ts.container
             h1.ts.center.aligned.header Swore
     include _nav.pug

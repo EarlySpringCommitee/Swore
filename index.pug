@@ -2,14 +2,7 @@ include _header.pug
 body
     header#welcome.ts.heading.vertically.padded.center.aligned.fluid.huge.slate
         .image
-            script.
-                var perviewImg = Trianglify({
-                    width: 2560,
-                    height: 2560,
-                    stroke_width: 200,
-                    cell_size: 100,
-                });
-                document.write('<img src="' + perviewImg.png() + '">');
+            script headerImg()
         .ts.container
             .header 尼好
             .description 這是個能夠美觀地呈現成績資料的可愛網站
