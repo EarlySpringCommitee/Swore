@@ -31,18 +31,25 @@ function check() {
     //獲取 form 表單輸入:使用者名稱,密碼,是否保存密碼
     var username = document.getElementById("userID").value.trim();
     var password = document.getElementById("userPASS").value.trim();
+    var school = document.getElementById("userSchool").value.trim();
     var isRmbPwd = document.getElementById("isRmbPwd").checked;
+    //存到 sessionStorage 等等在成績頁使用
+    window.sessionStorage["username"] = username;
+    window.sessionStorage["password"] = password;
+    window.sessionStorage["school"] = school;
 
     //判斷使用者名稱,密碼是否為空(全空格也算空)
     if (username.length != 0 && password.length != 0) {
         //若複選框勾選,則添加 Cookie,記錄密碼
         if (isRmbPwd == true) {
             setCookie("This is username", username, 7);
+            setCookie("School", school, 7);
             setCookie(username, password, 7);
         }
         //否則清除Cookie
         else {
             delCookie("This is username");
+            delCookie("School");
             delCookie(username);
         }
         return true;
@@ -57,6 +64,7 @@ function check() {
 window.onload = function() {
     //從 Cookie 獲取到使用者名稱
     var username = getCookie("This is username");
+    var school = getCookie("School");
     //如果使用者名稱為空,則給 form 元素賦空值
     if (username == "") {
         document.getElementById("userID").value = "";
@@ -70,5 +78,14 @@ window.onload = function() {
         document.getElementById("userID").value = username;
         document.getElementById("userPASS").value = password;
         document.getElementById("isRmbPwd").checked = true;
+
+        // 調整下拉式選單
+        var userSchool = document.getElementById('userSchool');
+        for (var i, j = 0; i = userSchool.options[j]; j++) {
+            if (i.value == school) {
+                userSchool.selectedIndex = j;
+                break;
+            }
+        }
     }
 }
