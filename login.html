@@ -10,6 +10,7 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/ripple.min.css" rel="stylesheet">
     <link href="./icon/Swore.png" rel="shortcut icon">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
     <script src="./js/ripple.min.js"></script>
@@ -36,14 +37,14 @@
       <div class="sub header">登入您的帳號並開始使用</div>
     </h1>
     <div class="ts centered secondary segment" id="login">
-      <form class="ts form" method="get" role="form" onsubmit="return check()">
+      <div class="ts form">
         <div class="field">
           <label>學校</label>
           <div class="ts stackable dropdowns">
             <select class="ts basic dropdown" id="userSchool" name="userSchool" required>
-              <option value="hchs">新竹高中</option>
-              <option value="tlhc">斗六家商</option>
-              <option value="chgsh">彰化女中</option>
+              <option value="HCHS">新竹高中</option>
+              <option value="TLHC">斗六家商</option>
+              <option value="CHGSH">彰化女中</option>
             </select>
           </div>
         </div>
@@ -61,8 +62,10 @@
             <label for="isRmbPwd">記住我</label>
           </div>
         </div>
-        <button class="ts positive fluid button" type="submit">登入</button>
-      </form>
+        <form role="form" onsubmit="return check()" action="score.html" method="get">
+          <button class="ts positive fluid button" type="submit">登入</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

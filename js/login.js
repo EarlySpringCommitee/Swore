@@ -59,6 +59,8 @@ function check() {
         alert('請正確填寫內容')
         return false;
     }
+
+    document.location.href = "score.html"
 }
 //將 function 函數賦值給 onload 對象
 window.onload = function() {
@@ -87,5 +89,15 @@ window.onload = function() {
                 break;
             }
         }
+    }
+    //傳出的帳密錯誤
+    if (window.sessionStorage["loginMessage"]) {
+        swal({
+            title: "訊息",
+            text: window.sessionStorage["loginMessage"],
+            icon: window.sessionStorage["loginMessageIcon"],
+        });
+        sessionStorage.removeItem('loginMessage');
+        sessionStorage.removeItem('loginMessageIcon');
     }
 }
