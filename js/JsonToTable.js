@@ -1,4 +1,4 @@
-function createScoreTable(mode, data, examSelections = Object.keys(data), subjectSelections = Object.keys(Object.values(data)[0]), scoreSelections = '11111') {
+function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data), subjectSelections = Object.keys(Object.values(data)[0])) {
     function s() {
         let table = document.createElement("tbody");
         let firstRow = table.appendChild(document.createElement('tr'));
