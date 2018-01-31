@@ -10,16 +10,16 @@ body
         h3.ts.header 基本資料
             .sub.header 確定資料是不是你的（？
         .ts.stackable.three.cards
-            mixin card(header,description,icon,studentInfo)
+            mixin card(header,icon,studentInfo)
                 .ts.card
                     .content
                         .header= header
-                        .description(data-student=studentInfo)=description
+                        .description(data-student=studentInfo)
                     .symbol
                         i.icon(class=icon)
-            +card('學號','548787','qrcode','studentId')
-            +card('姓名','洨洨安','user','name')
-            +card('班級','一年洨班','student','class')
+            +card('學號','qrcode','studentId')
+            +card('姓名','user','name')
+            +card('班級','student','class')
         h3.ts.header 成績
             .sub.header 若無法看見完整內容可利用 
                 kbd Shift+滾輪
