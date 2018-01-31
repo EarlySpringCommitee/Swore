@@ -56,19 +56,13 @@ function createScoreTable(mode, data, examSelections = Object.keys(data), subjec
 }
 
 function fillInfoIn(data) {
-
-    $("[data-student=\"name\"]").text(data['name'])
-    $("[data-student=\"studentId\"]").text(data['studentId'])
-    $("[data-student=\"class\"]").text(data['class'])
-
-    /*for (let i of document.getElementsByName('name')) {
+    for (let i of document.querySelectorAll('[data-student="name"]')) {
         i.textContent = data['name'];
     }
-    for (let i of document.getElementsByName('studentId')) {
+    for (let i of document.querySelectorAll('[data-student="studentId"]')) {
         i.textContent = data['studentId'];
     }
-    for (let i of document.getElementsByName('class')) {
+    for (let i of document.querySelectorAll('[data-student="class"]')) {
         i.textContent = data['class'];
-        conaole.log(data['class'])
-    }*/
+    }
 }
