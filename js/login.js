@@ -56,7 +56,11 @@ function check() {
     }
     //非法輸入提示
     else {
-        alert('請正確填寫內容')
+        swal({
+            title: "糟糕",
+            text: '請正確填寫帳號密碼',
+            icon: 'error',
+        });
         return false;
     }
 
