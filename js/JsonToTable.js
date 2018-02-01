@@ -1,4 +1,10 @@
-function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data), subjectSelections = Object.keys(Object.values(data)[0])) {
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data),
+    subjectSelections = Object.keys(Object.values(data)[0]),
+    highlight = true, good = 80, bad = 60) {
     function s() {
         let table = document.createElement("tbody");
         let firstRow = table.appendChild(document.createElement('tr'));
@@ -25,12 +31,31 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
             for (let examData of examDatas) { //
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
-                        if (scoreSelections[index] != '0') newRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(examData[subject][index]));
+                        if (scoreSelections[index] != '0'){
+                            score = examData[subject][index]
+                            td = newRow.appendChild(document.createElement('td'));
+                            td.appendChild(document.createTextNode(score));
+                            if (highlight){
+                                if (isNumeric(score)){
+                                    score = parseFloat(score);
+                                    if (score >= good) td.classname += ' positive' ;
+                                    else if (score < bad) td.classname += ' negative';
+                                }
+                            }
+                        }
                     }
                 } else {
+                    score = examData[subject];
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength.toString();
-                    td.appendChild(document.createTextNode(examData[subject]));
+                    td.appendChild(document.createTextNode(score));
+                    if (highlight){
+                        if (isNumeric(score)){
+                            score = parseFloat(score);
+                            if (score >= good) td.classname += ' positive' ;
+                            else if (score < bad) td.classname += ' negative';
+                        }
+                    }
                 }
             }
         }
