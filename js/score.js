@@ -7,6 +7,7 @@ window.onload = function() {
     }
     if (location.hostname == 'localhost' || username == '始春延期') {
         getLocalScore()
+        snackbar("始春延期登入已啟用")
     } else {
         ajaxGetScore(username, password, school)
     }
@@ -55,7 +56,7 @@ function selectorStatus() {
             title: "錯誤",
             text: '篩選器無法全部關閉',
             icon: 'error',
-        });
+        })
     }
     $('table#score').attr('style', 'min-width: ' + (ouo * 300 + 900) + 'px')
     return owo

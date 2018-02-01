@@ -178,3 +178,23 @@ footer p {
     color: white;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
+
+
+/*==========
+    動畫
+==========*/
+
+.fadeIn {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

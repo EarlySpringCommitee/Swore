@@ -106,7 +106,7 @@ window.onload = function() {
             title: "訊息",
             text: window.sessionStorage["loginMessage"],
             icon: window.sessionStorage["loginMessageIcon"],
-        });
+        })
         sessionStorage.removeItem('loginMessage');
         sessionStorage.removeItem('loginMessageIcon');
     }
