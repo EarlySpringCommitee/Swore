@@ -53,7 +53,8 @@ function ajaxGetScore(username, password, school) {
     $.post("https://api.twscore.ml/" + school, {
         account: username,
         password: password,
-        mode: "is"
+        mode: "is",
+        dataType: 'jsonp',
     }, function(data, status) {
         console.log(status)
         console.log(data)
