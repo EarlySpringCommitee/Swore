@@ -66,3 +66,12 @@ function fillInfoIn(data) {
         i.textContent = data['class'];
     }
 }
+
+function getKeys(data, mode='exam'){
+    switch (mode){
+        case 'exam':
+            return Object.keys(data);
+        case 'subject':
+            return Object.keys(Object.values(data)[0]);
+    }
+}
