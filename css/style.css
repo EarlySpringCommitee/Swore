@@ -14,6 +14,7 @@ kbd {
 header {
     padding: 5em 2em !important;
     padding-bottom: calc(4em + 48px) !important;
+    background-color: #5a5a5a;
 }
 
 header .header {
