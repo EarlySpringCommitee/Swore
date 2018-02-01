@@ -38,7 +38,7 @@ $(document).ready(function() {
         padding: 5em 2em !important;
         padding-bottom: calc(4em + 48px) !important;
         font-size: 14px;`)
-        $("header#welcome .header").attr('style', `font-size: 2.65rem;margin-bottom: 0;`).html('Swore')
+        $("header#welcome .header").attr('style', 'display: none;')
         $("header#welcome .description").attr('style', 'display: none;')
         $("header#welcome .action").attr('style', 'display: none;')
         $("header#welcome").attr('id', '')

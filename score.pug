@@ -4,11 +4,11 @@ body
         .image
             script headerImg()
         .ts.container
-            h1.ts.center.aligned.header Swore
+            h1.ts.center.aligned.header.fadeIn Swore
     include _nav.pug
     #loader.ts.active.dimmer
         .ts.indeterminate.text.loader hen 忙
-    .ts.container
+    .ts.container.fadeIn
         h3.ts.header 基本資料
             .sub.header 確定資料是不是你的（？
         .ts.stackable.three.cards
@@ -26,17 +26,23 @@ body
             .sub.header 若無法看見完整內容可利用 
                 kbd Shift+滾輪
                 |  或是手指來移動
-        #scoreSelections.ts.separated.primary.compact.labeled.icon.buttons
-            mixin button(name)
-                .ts.button
-                    i.icon 
-                    =name
-            +button('成績')
-            +button('平均')
-            +button('排名')
-            +button('類組排')
-            +button('校排')
-        br
+        details.ts.accordion(open='')
+            summary
+                i.dropdown.icon
+                |  篩選器
+            .content
+                h5.ts.header 成績
+                #scoreSelections.ts.separated.primary.compact.labeled.icon.buttons
+                    mixin button(name)
+                        .ts.button
+                            i.icon 
+                            =name
+                    +button('成績')
+                    +button('平均')
+                    +button('排名')
+                    +button('類組排')
+                    +button('校排')
+                br
         br
         .gs.scroll
             table#score.ts.definition.compact.striped.celled.table

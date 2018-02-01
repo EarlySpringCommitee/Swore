@@ -7,15 +7,15 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" rel="stylesheet">
     <link href="//xiaoan.tocas-ui.com/ts.xiaoan.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="./css/style.css?95308" rel="stylesheet">
+    <link href="./css/style.css?5034" rel="stylesheet">
     <link href="./css/ripple.min.css" rel="stylesheet">
     <link href="./icon/Swore.png" rel="shortcut icon">
     <script data-cfasync="true" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script data-cfasync="true" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script data-cfasync="true" src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
     <script data-cfasync="true" src="//xiaoan.tocas-ui.com/ts.xiaoan.min.js"></script>
-    <script data-cfasync="true" src="./js/ripple.min.js?100705"></script>
-    <script data-cfasync="true" src="./js/script.js?22598"></script>
+    <script data-cfasync="true" src="./js/ripple.min.js?"></script>
+    <script src="./js/script.js?"></script>
   </head>
 </html>
 <body>
@@ -24,7 +24,7 @@
       <script>headerImg()</script>
     </div>
     <div class="ts container">
-      <h1 class="ts center aligned header">Swore</h1>
+      <h1 class="ts center aligned header fadeIn">Swore</h1>
     </div>
   </header>
   <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
@@ -35,7 +35,7 @@
   <div class="ts active dimmer" id="loader">
     <div class="ts indeterminate text loader">hen 忙</div>
   </div>
-  <div class="ts container">
+  <div class="ts container fadeIn">
     <h3 class="ts header">基本資料
       <div class="sub header">確定資料是不是你的（？</div>
     </h3>
@@ -65,25 +65,31 @@
     <h3 class="ts header">成績
       <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
     </h3>
-    <div class="ts separated primary compact labeled icon buttons" id="scoreSelections">
-            <div class="ts button"><i class="icon"> </i>成績
-            </div>
-            <div class="ts button"><i class="icon"> </i>平均
-            </div>
-            <div class="ts button"><i class="icon"> </i>排名
-            </div>
-            <div class="ts button"><i class="icon"> </i>類組排
-            </div>
-            <div class="ts button"><i class="icon"> </i>校排
-            </div>
-    </div><br><br>
+    <details class="ts accordion" open="">
+      <summary><i class="dropdown icon"></i> 篩選器</summary>
+      <div class="content">
+        <h5 class="ts header">成績</h5>
+        <div class="ts separated primary compact labeled icon buttons" id="scoreSelections">
+                    <div class="ts button"><i class="icon"> </i>成績
+                    </div>
+                    <div class="ts button"><i class="icon"> </i>平均
+                    </div>
+                    <div class="ts button"><i class="icon"> </i>排名
+                    </div>
+                    <div class="ts button"><i class="icon"> </i>類組排
+                    </div>
+                    <div class="ts button"><i class="icon"> </i>校排
+                    </div>
+        </div><br>
+      </div>
+    </details><br>
     <div class="gs scroll">
       <table class="ts definition compact striped celled table" id="score"></table>
     </div><br>
   </div>
-  <script src="./js/JsonToTable.js?96883"></script>
-  <script src="./js/data.json?39396"></script>
-  <script src="./js/score.js?8945"></script><br>
+  <script src="./js/JsonToTable.js?29239"></script>
+  <script src="./js/data.json?32058"></script>
+  <script src="./js/score.js?20123"></script><br>
   <footer class="ts fluid slate">
     <div class="image">
       <script>headerImg()</script>
