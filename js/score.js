@@ -119,7 +119,6 @@ function scoreSelectionStatus() {
             icon: 'error',
         })
     }
-    $('table#score').attr('style', 'min-width: ' + (ouo * 300 + 900) + 'px')
     return owo
 }
 
