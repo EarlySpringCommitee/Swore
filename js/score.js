@@ -126,7 +126,7 @@ function examSelectionStatus() {
             delete exam[i];
         }
     }
-    return exam
+    return exam.filter(x => true)
 }
 
 function subjectSelectionStatus() {
@@ -137,5 +137,5 @@ function subjectSelectionStatus() {
             delete subject[i];
         }
     }
-    return subject
+    return subject.filter(x => true)
 }
