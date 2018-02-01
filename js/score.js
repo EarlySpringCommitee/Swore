@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = () => {
     var username = window.sessionStorage["username"],
         password = window.sessionStorage["password"],
         school = window.sessionStorage["school"]
@@ -11,8 +11,8 @@ window.onload = function() {
     } else {
         ajaxGetScore(username, password, school)
     }
-    $("details .button").addClass('spring')
-    $("details .ts.buttons .ts.button").click(function() {
+    $(".ts.accordion .button").addClass('spring')
+    $(".ts.accordion .ts.buttons .ts.button").click(function() {
         if ($(this).hasClass('spring')) {
             $(this).removeClass('spring')
         } else {
@@ -21,6 +21,7 @@ window.onload = function() {
         let owo = createScoreTable('s', ajaxdata['s'], scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
         $("#score").html(owo)
     })
+    console.log(12)
     $('a[href="login.html"]').attr('href', '#logout').text('登出')
     $('a[href="#logout"]').click(function() {
         sessionStorage.removeItem('username');
@@ -125,8 +126,6 @@ function examSelectionStatus() {
         }
     }
     return exam.filter(x => true)
-    console.log(exam)
-        //return exam
 }
 
 function subjectSelectionStatus() {
