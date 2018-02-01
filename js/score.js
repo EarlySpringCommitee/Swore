@@ -32,7 +32,6 @@ function buttonClick() {
         let owo = createScoreTable('s', score, scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
         $("#score").html(owo)
     })
-    console.log(12)
 }
 
 function returnToLogin(message, icon) {
@@ -130,6 +129,16 @@ function examSelectionStatus() {
             delete exam[i];
         }
     }
+    if (exam.filter(x => true)[0] == undefined) {
+        swal({
+            title: "錯誤",
+            text: '篩選器無法全部關閉',
+            icon: 'error',
+        })
+        $("#examSelections .button").addClass('spring')
+        return getKeys(ajaxdata['s'], 'exam')
+    }
+
     return exam.filter(x => true)
 }
 
@@ -140,6 +149,15 @@ function subjectSelectionStatus() {
         if (!now.hasClass('spring')) {
             delete subject[i];
         }
+    }
+    if (subject.filter(x => true)[0] == undefined) {
+        swal({
+            title: "錯誤",
+            text: '篩選器無法全部關閉',
+            icon: 'error',
+        })
+        $("#subjectSelections .button").addClass('spring')
+        return getKeys(ajaxdata['s'], 'subject')
     }
     return subject.filter(x => true)
 }
