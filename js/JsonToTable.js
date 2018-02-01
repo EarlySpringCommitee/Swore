@@ -17,7 +17,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 else if (score < bad) td.className += ' negative';
             }
             else if (value.includes('/')){
-                let rankList = valie.split('/');
+                let rankList = value.split('/');
                 if (isNumeric(rankList[0])){
                     if (isNumeric(rankList[1])){
                         if (rankList[0] >= scoreList[1] * goodRankP) td.className += ' positive' ;
