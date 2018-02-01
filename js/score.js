@@ -18,7 +18,8 @@ window.onload = () => {
         } else {
             $(this).addClass('spring')
         }
-        let owo = createScoreTable('s', ajaxdata['s'], scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
+        let score = ajaxdata['s']
+        let owo = createScoreTable('s', score, scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
         $("#score").html(owo)
     })
     console.log(12)
