@@ -8,10 +8,8 @@ window.onload = () => {
     if (location.hostname == 'localhost' || username == '始春延期') {
         getLocalScore()
         snackbar("目前取用本地資料")
-        buttonClick()
     } else {
         ajaxGetScore(username, password, school)
-        buttonClick()
     }
     $('a[href="login.html"]').attr('href', '#logout').text('登出')
     $('a[href="#logout"]').click(function() {
@@ -97,6 +95,8 @@ function showSelectorButtons(data) {
                 .html('<i class="icon"></i>' + subject[i])
             );
     } //結束迴圈
+
+    buttonClick()
 }
 
 function scoreSelectionStatus() {
