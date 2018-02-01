@@ -150,3 +150,16 @@ header#welcome .action .button {
 .gs.scroll::-webkit-scrollbar-thumb:active {
     background-color: #4b7baa;
 }
+
+
+/*==========
+    Footer
+==========*/
+
+footer .grid .column:nth-child(2) {
+    text-align: right;
+}
+
+footer p {
+    color: white;
+}
