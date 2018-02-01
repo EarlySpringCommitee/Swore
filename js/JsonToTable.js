@@ -12,6 +12,14 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
         scoreSelections = scoreSelections.split('').concat(['0', '0', '0', '0', '0']);
         let rowScoreLength = scoreSelections.filter(i => i != '0').length;
 
+        function color(td, value){
+            if (isNumeric(value)){
+                score = parseFloat(value);
+                if (score >= good) td.className += ' positive' ;
+                else if (score < bad) td.className += ' negative';
+            }
+        }
+
         function generateFirstRow(exam) {
             if (scoreSelections[0] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode(exam));
             if (scoreSelections[1] != '0') firstRow.appendChild(document.createElement('td')).appendChild(document.createTextNode("平均"));
@@ -35,13 +43,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                             score = examData[subject][index]
                             td = newRow.appendChild(document.createElement('td'));
                             td.appendChild(document.createTextNode(score));
-                            if (highlight){
-                                if (isNumeric(score)){
-                                    score = parseFloat(score);
-                                    if (score >= good) td.classname += ' positive' ;
-                                    else if (score < bad) td.classname += ' negative';
-                                }
-                            }
+                            if (highlight) color(td, score);
                         }
                     }
                 } else {
@@ -49,13 +51,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength.toString();
                     td.appendChild(document.createTextNode(score));
-                    if (highlight){
-                        if (isNumeric(score)){
-                            score = parseFloat(score);
-                            if (score >= good) td.classname += ' positive' ;
-                            else if (score < bad) td.classname += ' negative';
-                        }
-                    }
+                    if (highlight) color(td, score);
                 }
             }
         }
