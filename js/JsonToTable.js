@@ -21,7 +21,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                         }
                     }
                 } else {
-                    if (rankList[0] <= goodRank) td.className += ' positive';
+                    if (parseFloat(value) <= goodRank) td.className += ' positive';
                 }
             } else if (isNumeric(value)) {
                 let score = parseFloat(value);
