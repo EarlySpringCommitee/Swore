@@ -1,6 +1,4 @@
-function isNumeric(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-  }
+isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
 function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data),
     subjectSelections = Object.keys(Object.values(data)[0]),
@@ -14,7 +12,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
 
         function color(td, value){
             if (isNumeric(value)){
-                score = parseFloat(value);
+                let score = parseFloat(value);
                 if (score >= good) td.className += ' positive' ;
                 else if (score < bad) td.className += ' negative';
             }
@@ -40,14 +38,14 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
                         if (scoreSelections[index] != '0'){
-                            score = examData[subject][index]
-                            td = newRow.appendChild(document.createElement('td'));
+                            let score = examData[subject][index];
+                            let td = newRow.appendChild(document.createElement('td'));
                             td.appendChild(document.createTextNode(score));
                             if (highlight) color(td, score);
                         }
                     }
                 } else {
-                    score = examData[subject];
+                    let score = examData[subject];
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength.toString();
                     td.appendChild(document.createTextNode(score));
