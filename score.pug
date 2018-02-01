@@ -31,7 +31,7 @@ body
                 i.dropdown.icon
                 |  篩選器
             .content
-                h5.ts.header 成績
+                h5.ts.header 分類
                 #scoreSelections.ts.separated.primary.compact.labeled.icon.buttons
                     mixin button(name)
                         .ts.button
@@ -42,6 +42,10 @@ body
                     +button('排名')
                     +button('類組排')
                     +button('校排')
+                h5.ts.header 考試
+                #examSelections
+                h5.ts.header 科目
+                #subjectSelections
                 br
         br
         .gs.scroll
