@@ -10,21 +10,23 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
         scoreSelections = scoreSelections.split('').concat(['0', '0', '0', '0', '0']);
         let rowScoreLength = scoreSelections.filter(i => i != '0').length;
 
-        function color(td, value){
-            if (isNumeric(value)){
-                let score = parseFloat(value);
-                if (score >= good) td.className += ' positive' ;
-                else if (score < bad) td.className += ' negative';
-            }
-            else if (value.includes('/')){
-                let rankList = value.split('/');
-                if (isNumeric(rankList[0])){
-                    if (isNumeric(rankList[1])){
-                        if (rankList[0] <= rankList[1] * goodRankP) td.className += ' positive' ;
-                        else if (rankList[0] > rankList[1] - (rankList[1] * badRankP)) td.className += ' negative';
+        function color(td, value, mode = undefined) {
+            if (mode == 'r') {
+                if (value.includes('/')) {
+                    let rankList = value.split('/');
+                    if (isNumeric(rankList[0])) {
+                        if (isNumeric(rankList[1])) {
+                            if (rankList[0] <= rankList[1] * goodRankP) td.className += ' positive';
+                            else if (rankList[0] > rankList[1] - (rankList[1] * badRankP)) td.className += ' negative';
+                        }
                     }
-                    else if (rankList[0] <= goodRank) td.className += ' positive' ;
+                } else {
+                    if (rankList[0] <= goodRank) td.className += ' positive';
                 }
+            } else if (isNumeric(value)) {
+                let score = parseFloat(value);
+                if (score >= good) td.className += ' positive';
+                else if (score < bad) td.className += ' negative';
             }
         }
 
@@ -47,11 +49,14 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
             for (let examData of examDatas) { //
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
-                        if (scoreSelections[index] != '0'){
+                        if (scoreSelections[index] != '0') {
                             let score = examData[subject][index];
                             let td = newRow.appendChild(document.createElement('td'));
                             td.appendChild(document.createTextNode(score));
-                            if (highlight) color(td, score);
+                            if (highlight) {
+                                if (index >= 2) color(td, score, 'r');
+                                else color(td, score);
+                            }
                         }
                     }
                 } else {
@@ -60,9 +65,9 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     td.colSpan = rowScoreLength.toString();
                     td.appendChild(document.createTextNode(score));
                     if (highlight) {
-                        if (score.includes('.')){
+                        if (score.includes('.')) {
                             if (parseFloat(score) <= 100) color(td, score);
-                        }    
+                        }
                     }
                 }
             }
@@ -100,8 +105,8 @@ function fillInfoIn(data) {
     }
 }
 
-function getKeys(data, mode='exam'){
-    switch (mode){
+function getKeys(data, mode = 'exam') {
+    switch (mode) {
         case 'exam':
             return Object.keys(data);
         case 'subject':
