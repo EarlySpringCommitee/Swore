@@ -26,6 +26,10 @@ body
             .sub.header 若無法看見完整內容可利用 
                 kbd Shift+滾輪
                 |  或是手指來移動
+        br
+        .gs.scroll
+            table#score.ts.definition.compact.striped.celled.table
+        br
         details.ts.accordion(open='')
             summary
                 i.dropdown.icon
@@ -43,14 +47,10 @@ body
                     +button('類組排')
                     +button('校排')
                 h5.ts.header 考試
-                #examSelections
+                #examSelections.ts.separated.primary.compact.labeled.icon.buttons
                 h5.ts.header 科目
-                #subjectSelections
+                #subjectSelections.ts.separated.primary.compact.labeled.icon.buttons
                 br
-        br
-        .gs.scroll
-            table#score.ts.definition.compact.striped.celled.table
-        br
     script(src='./js/JsonToTable.js?'+Math.floor(Math.random() * 102400))
     script(src='./js/data.json?'+Math.floor(Math.random() * 102400))
     script(src='./js/score.js?'+Math.floor(Math.random() * 102400))

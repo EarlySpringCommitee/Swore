@@ -7,7 +7,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" rel="stylesheet">
     <link href="//xiaoan.tocas-ui.com/ts.xiaoan.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="./css/style.css?32624" rel="stylesheet">
+    <link href="./css/style.css?13706" rel="stylesheet">
     <link href="./css/ripple.min.css" rel="stylesheet">
     <link href="./icon/Swore.png" rel="shortcut icon">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -64,7 +64,10 @@
     </div>
     <h3 class="ts header">成績
       <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
-    </h3>
+    </h3><br>
+    <div class="gs scroll">
+      <table class="ts definition compact striped celled table" id="score"></table>
+    </div><br>
     <details class="ts accordion" open="">
       <summary><i class="dropdown icon"></i> 篩選器</summary>
       <div class="content">
@@ -82,18 +85,15 @@
                     </div>
         </div>
         <h5 class="ts header">考試</h5>
-        <div id="examSelections"></div>
+        <div class="ts separated primary compact labeled icon buttons" id="examSelections"></div>
         <h5 class="ts header">科目</h5>
-        <div id="subjectSelections"></div><br>
+        <div class="ts separated primary compact labeled icon buttons" id="subjectSelections"></div><br>
       </div>
-    </details><br>
-    <div class="gs scroll">
-      <table class="ts definition compact striped celled table" id="score"></table>
-    </div><br>
+    </details>
   </div>
-  <script src="./js/JsonToTable.js?65080"></script>
-  <script src="./js/data.json?63438"></script>
-  <script src="./js/score.js?91339"></script><br>
+  <script src="./js/JsonToTable.js?2745"></script>
+  <script src="./js/data.json?40169"></script>
+  <script src="./js/score.js?71560"></script><br>
   <footer class="ts fluid slate">
     <div class="image">
       <script>headerImg()</script>

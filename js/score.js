@@ -7,18 +7,18 @@ window.onload = function() {
     }
     if (location.hostname == 'localhost' || username == '始春延期') {
         getLocalScore()
-        snackbar("始春延期登入已啟用")
+        snackbar("目前取用本地資料")
     } else {
         ajaxGetScore(username, password, school)
     }
     $("#scoreSelections .button").addClass('spring')
-    $("#scoreSelections .button").click(function() {
+    $("details .ts.buttons .ts.button").click(function() {
         if ($(this).hasClass('spring')) {
             $(this).removeClass('spring')
         } else {
             $(this).addClass('spring')
         }
-        let owo = createScoreTable('s', ajaxdata['s'], selectorStatus());
+        let owo = createScoreTable('s', ajaxdata['s'], scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
         $("#score").html(owo)
     })
     $('a[href="login.html"]').attr('href', '#logout').text('登出')
@@ -38,7 +38,63 @@ function returnToLogin(message, icon) {
     document.location.href = "login.html"
 }
 
-function selectorStatus() {
+
+function ajaxGetScore(username, password, school) {
+    $("#loader .loader").text('請求中')
+    $.post("https://api.twscore.ml/" + school, {
+        account: username,
+        password: password,
+        mode: "is",
+    }, function(data, status) {
+        console.log(status)
+        console.log(data)
+        ajaxdata = data
+        let owo = createScoreTable('s', ajaxdata['s']);
+        $("#score").html(owo)
+        fillInfoIn(ajaxdata['i'])
+        $("#loader").removeClass('active')
+        showSelectorButtons(ajaxdata)
+    }).fail(function() {
+        returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
+    });
+
+}
+
+function getLocalScore() {
+    $("#loader").removeClass('active')
+    $.getScript('/js/data.json')
+    ajaxdata = data
+    $("#score").html(createScoreTable('s', ajaxdata['s']))
+    fillInfoIn(ajaxdata['i'])
+    showSelectorButtons(ajaxdata)
+}
+
+function showSelectorButtons(data) {
+
+    var exam = getKeys(data['s'], 'exam')
+    for (i = 0; i < exam.length; i = i + 1) {
+        $("#examSelections") //這裡用到了 JQ
+            .append($("<div/>")
+                .addClass("ts button")
+                .attr("data-exam", exam[i])
+                .html('<i class="icon"></i>' + exam[i])
+            );
+    } //結束迴圈
+    $("#examSelections .button").addClass('spring')
+
+    var subject = getKeys(data['s'], 'subject')
+    for (i = 0; i < subject.length; i = i + 1) {
+        $("#subjectSelections") //這裡用到了 JQ
+            .append($("<div/>")
+                .addClass("ts button")
+                .attr("data-subject", subject[i])
+                .html('<i class="icon"></i>' + subject[i])
+            );
+    } //結束迴圈
+    $("#subjectSelections .button").addClass('spring')
+}
+
+function scoreSelectionStatus() {
     var owo = ''
     var ouo = 0
     var qaq = $("#scoreSelections .button").length
@@ -62,30 +118,25 @@ function selectorStatus() {
     return owo
 }
 
-function ajaxGetScore(username, password, school) {
-    $("#loader .loader").text('請求中')
-    $.post("https://api.twscore.ml/" + school, {
-        account: username,
-        password: password,
-        mode: "is",
-    }, function(data, status) {
-        console.log(status)
-        console.log(data)
-        ajaxdata = data
-        let owo = createScoreTable('s', ajaxdata['s']);
-        $("#score").html(owo)
-        fillInfoIn(ajaxdata['i'])
-        $("#loader").removeClass('active')
-    }).fail(function() {
-        returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
-    });
-
+function examSelectionStatus() {
+    var exam = getKeys(ajaxdata['s'], 'exam')
+    for (i = 0; i < exam.length; i = i + 1) {
+        let now = $("#examSelections .ts.button:nth-child(" + i + 1 + ')')
+        if (!now.hasClass('spring')) {
+            delete exam[i];
+        }
+    }
+    return exam
 }
 
-function getLocalScore() {
-    $("#loader").removeClass('active')
-    $.getScript('/js/data.json')
-    ajaxdata = data
-    $("#score").html(createScoreTable('s', ajaxdata['s']))
-    fillInfoIn(ajaxdata['i'])
+function subjectSelectionStatus() {
+    var subject = getKeys(ajaxdata['s'], 'subject')
+    for (i = 0; i < subject.length; i = i + 1) {
+        let now = $("#subjectSelections .ts.button:nth-child(" + (i + 1) + ')')
+        if (!now.hasClass('spring')) {
+            delete subject[i];
+        }
+    }
+    console.log(subject)
+    return subject
 }

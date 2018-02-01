@@ -88,16 +88,30 @@ header#welcome .action .button {
     成績
 ==========*/
 
-#scoreSelections .ts.button.spring {
+#scoreSelections .ts.button.spring,
+#subjectSelections .ts.button.spring,
+#examSelections .ts.button.spring {
     box-shadow: 0 0 19px #87bdff;
 }
 
-#scoreSelections .ts.button.spring i:before {
+#scoreSelections .ts.button.spring i:before,
+#subjectSelections .ts.button.spring i:before,
+#examSelections .ts.button.spring i:before {
     content: "\f06e";
 }
 
-#scoreSelections .ts.button:not(.spring) i:before {
+#scoreSelections .ts.button:not(.spring) i:before,
+#subjectSelections .ts.button:not(.spring) i:before,
+#examSelections .ts.button:not(.spring) i:before {
     content: "\f070";
+}
+
+details .ts.buttons {
+    display: block;
+}
+
+details .ts.buttons .ts.button {
+    margin-bottom: 15px !important;
 }
 
 #score tr:nth-child(1)>td {
