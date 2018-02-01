@@ -46,7 +46,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 else if (i in data) return data[i];
                 else return undefined;
             });
-            for (let examData of examDatas) { //
+            for (let examData of examDatas) {
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
                         if (scoreSelections[index] != '0') {
@@ -65,7 +65,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     td.colSpan = rowScoreLength.toString();
                     td.appendChild(document.createTextNode(score));
                     if (highlight) {
-                        if (score.includes('.')) {
+                        if (subject.includes('平均')) {
                             if (parseFloat(score) <= 100) color(td, score);
                         }
                     }
