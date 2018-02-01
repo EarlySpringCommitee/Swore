@@ -59,7 +59,11 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength.toString();
                     td.appendChild(document.createTextNode(score));
-                    if (highlight) color(td, score);
+                    if (highlight) {
+                        if (score.includes('.')){
+                            if (parseFloat(score) <= 100) color(td, score);
+                        }    
+                    }
                 }
             }
         }
