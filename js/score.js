@@ -137,6 +137,5 @@ function subjectSelectionStatus() {
             delete subject[i];
         }
     }
-    console.log(subject)
     return subject
 }
