@@ -54,7 +54,6 @@ function ajaxGetScore(username, password, school) {
         account: username,
         password: password,
         mode: "is",
-        dataType: 'jsonp',
     }, function(data, status) {
         console.log(status)
         console.log(data)
