@@ -121,12 +121,14 @@ function scoreSelectionStatus() {
 function examSelectionStatus() {
     var exam = getKeys(ajaxdata['s'], 'exam')
     for (i = 0; i < exam.length; i = i + 1) {
-        let now = $("#examSelections .ts.button:nth-child(" + i + 1 + ')')
+        let now = $("#examSelections .ts.button:nth-child(" + (i + 1) + ')')
         if (!now.hasClass('spring')) {
             delete exam[i];
         }
     }
     return exam.filter(x => true)
+    console.log(exam)
+        //return exam
 }
 
 function subjectSelectionStatus() {
