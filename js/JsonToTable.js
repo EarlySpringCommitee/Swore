@@ -2,7 +2,8 @@ isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
 function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data),
     subjectSelections = Object.keys(Object.values(data)[0]),
-    highlight = true, good = 80, bad = 60, goodRankP = 0.125, badRankP = 0.25, goodRank = 5) {
+    highlight = true, good = 80, bad = 60, goodRankP = 0.125, badRankP = 0.25, goodRank = 5,
+    clearNullRows = true) {
     function s() {
         let table = document.createElement("tbody");
         let firstRow = table.appendChild(document.createElement('tr'));
@@ -46,13 +47,16 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 else if (i in data) return data[i];
                 else return undefined;
             });
-            for (let examData of examDatas) {
+            for (let exam in examDatas) {
+                examData = examDatas[exam];
                 if (Array.isArray(examData[subject])) {
                     for (let index in examData[subject]) {
                         if (scoreSelections[index] != '0') {
                             let score = examData[subject][index];
                             let td = newRow.appendChild(document.createElement('td'));
                             td.appendChild(document.createTextNode(score));
+                            td.value = score;
+                            td.dataset.exam = exam;
                             if (highlight) {
                                 if (index >= 2) color(td, score, 'r');
                                 else color(td, score);
@@ -62,7 +66,9 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 } else {
                     let score = examData[subject];
                     let td = newRow.appendChild(document.createElement('td'));
-                    td.colSpan = rowScoreLength.toString();
+                    td.colSpan = rowScoreLength;
+                    td.name = 'colspan-' + td.colSpan.toString();
+                    td.dataset.exam = exam;
                     td.appendChild(document.createTextNode(score));
                     if (highlight) {
                         if (subject.includes('平均')) {
@@ -83,6 +89,43 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
             if (Number.isInteger(subjectSelection)) subject = Object.keys(Object.values(data)[0])[subjectSelection];
             else if (subjectSelection in Object.values(data)[0]) subject = subjectSelection;
             generateScoreRow(subject);
+        }
+
+        if (clearNullRows){
+            let trs = table.childNodes;
+            let queryDeletes = [];
+            let deleteOffset = 0;
+            for (let i of [...Array(trs[0].childNodes.length).keys()]){
+                if (i == 0) continue;
+                let isNotNull = false;
+                for (let j of [...Array(trs.length).keys()]){
+                    if (j == 0) continue;
+                    if (trs[j].childNodes[1].name != undefined) break;
+                    let td = trs[j].childNodes[i];
+                    if (td.childNodes[0].nodeValue != "") {
+                        isNotNull = true;
+                        break;
+                    }
+                }
+                if (!isNotNull){
+                    queryDeletes.push(i);
+                }
+            }
+            for (let i of queryDeletes){
+                let exam = trs[1].childNodes[i - deleteOffset].dataset.exam;
+                for (tr of trs){
+                    if (tr.childNodes[1].name == undefined){
+                        console.log(tr.childNodes[1])
+                        tr.removeChild(tr.childNodes[i - deleteOffset]);
+                    }
+                    else {
+                        for (let td of tr.childNodes){
+                            if (td.dataset.exam == exam) td.colSpan = td.colSpan - 1;
+                        }
+                    }
+                }
+                deleteOffset = deleteOffset + 1;
+            }
         }
         return table;
     }
