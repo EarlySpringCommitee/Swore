@@ -41,6 +41,7 @@ $(document).ready(function() {
         $("header#welcome .header").attr('style', `font-size: 2.65rem;`).html('Swore')
         $("header#welcome .description").attr('style', 'display: none;')
         $("header#welcome .action").attr('style', 'display: none;')
+        $("#intro").attr('style', 'opacity: 0;')
         $('body').addClass('animated bounceOutUp')
 
         setTimeout("document.location.href = \"login.html\"", 170)

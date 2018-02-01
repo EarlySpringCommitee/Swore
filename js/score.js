@@ -5,7 +5,11 @@ window.onload = function() {
     if (!username || !password || !school) {
         returnToLogin()
     }
-    ajaxGetScore(username, password, school)
+    if (location.hostname == 'localhost' || username == '始春延期') {
+        getLocalScore()
+    } else {
+        ajaxGetScore(username, password, school)
+    }
     $("#scoreSelections .button").addClass('spring')
     $("#scoreSelections .button").click(function() {
         if ($(this).hasClass('spring')) {
@@ -18,10 +22,10 @@ window.onload = function() {
     })
     $('a[href="login.html"]').attr('href', '#logout').text('登出')
     $('a[href="#logout"]').click(function() {
-        returnToLogin("您已成功登出", "info")
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('password');
         sessionStorage.removeItem('school');
+        returnToLogin("您已成功登出", "success")
     })
 }
 
@@ -43,9 +47,18 @@ function selectorStatus() {
             var ouo = ouo + 1
         } else { var owo = owo + "0" }
     }
-    console.log(ouo)
-    $('table#score').attr('style', 'min-width: ' + (ouo * 375 + 900) + 'px')
-    return "1" + owo
+    if (owo == '00000') {
+        $("#scoreSelections .button").addClass('spring')
+        var ouo = 5
+        var owo = '11111'
+        swal({
+            title: "錯誤",
+            text: '篩選器無法全部關閉',
+            icon: 'error',
+        });
+    }
+    $('table#score').attr('style', 'min-width: ' + (ouo * 300 + 900) + 'px')
+    return owo
 }
 
 function ajaxGetScore(username, password, school) {
@@ -66,4 +79,12 @@ function ajaxGetScore(username, password, school) {
         returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
     });
 
+}
+
+function getLocalScore() {
+    $("#loader").removeClass('active')
+    $.getScript('/js/data.json')
+    ajaxdata = data
+    $("#score").html(createScoreTable('s', ajaxdata['s']))
+    fillInfoIn(ajaxdata['i'])
 }

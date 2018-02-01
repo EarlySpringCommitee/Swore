@@ -87,8 +87,16 @@ header#welcome .action .button {
     成績
 ==========*/
 
-.ts.button.spring {
+#scoreSelections .ts.button.spring {
     box-shadow: 0 0 19px #87bdff;
+}
+
+#scoreSelections .ts.button.spring i:before {
+    content: "\f06e";
+}
+
+#scoreSelections .ts.button:not(.spring) i:before {
+    content: "\f070";
 }
 
 #score tr:nth-child(1)>td {
@@ -118,6 +126,7 @@ header#welcome .action .button {
 
 .gs.scroll>table {
     min-width: 2400px;
+    min-height: 500px;
     border: 0px solid #e9e9e9;
 }
 
@@ -156,10 +165,16 @@ header#welcome .action .button {
     Footer
 ==========*/
 
+footer.ts.slate.slate.slate {
+    margin-top: 50px;
+    box-shadow: 0 -1px 10px 1px rgba(167, 167, 167, 0.46) !important;
+}
+
 footer .grid .column:nth-child(2) {
     text-align: right;
 }
 
 footer p {
     color: white;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
