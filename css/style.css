@@ -125,6 +125,10 @@ details .ts.buttons .ts.button {
     font-family: 'Roboto Mono', monospace !important;
 }
 
+#score td {
+    white-space: nowrap;
+}
+
 .gs.scroll {
     overflow: auto;
     overflow-y: hidden;
@@ -140,7 +144,7 @@ details .ts.buttons .ts.button {
 }
 
 .gs.scroll>table {
-    min-width: 2400px;
+    min-width: 50%;
     min-height: 500px;
     border: 0px solid #e9e9e9;
 }
