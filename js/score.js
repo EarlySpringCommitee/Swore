@@ -11,7 +11,7 @@ window.onload = function() {
     } else {
         ajaxGetScore(username, password, school)
     }
-    $("#scoreSelections .button").addClass('spring')
+    $("details .button").addClass('spring')
     $("details .ts.buttons .ts.button").click(function() {
         if ($(this).hasClass('spring')) {
             $(this).removeClass('spring')
@@ -80,7 +80,6 @@ function showSelectorButtons(data) {
                 .html('<i class="icon"></i>' + exam[i])
             );
     } //結束迴圈
-    $("#examSelections .button").addClass('spring')
 
     var subject = getKeys(data['s'], 'subject')
     for (i = 0; i < subject.length; i = i + 1) {
@@ -91,7 +90,6 @@ function showSelectorButtons(data) {
                 .html('<i class="icon"></i>' + subject[i])
             );
     } //結束迴圈
-    $("#subjectSelections .button").addClass('spring')
 }
 
 function scoreSelectionStatus() {
