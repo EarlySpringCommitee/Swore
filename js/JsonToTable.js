@@ -2,7 +2,7 @@ isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
 function createScoreTable(mode, data, scoreSelections = '11111', examSelections = Object.keys(data),
     subjectSelections = Object.keys(Object.values(data)[0]),
-    highlight = true, good = 80, bad = 60) {
+    highlight = true, good = 80, bad = 60, goodRankP = 0.125, badRankP = 0.25, goodRank = 5) {
     function s() {
         let table = document.createElement("tbody");
         let firstRow = table.appendChild(document.createElement('tr'));
@@ -15,6 +15,16 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 let score = parseFloat(value);
                 if (score >= good) td.className += ' positive' ;
                 else if (score < bad) td.className += ' negative';
+            }
+            else if (value.includes('/')){
+                let rankList = valie.split('/');
+                if (isNumeric(rankList[0])){
+                    if (isNumeric(rankList[1])){
+                        if (rankList[0] >= scoreList[1] * goodRankP) td.className += ' positive' ;
+                        else if (rankList[0] < scoreList[1] - (scoreList[1] * badRankP)) td.className += ' negative';
+                    }
+                    else if (rankList[0] >= goodRank) td.className += ' positive' ;
+                }
             }
         }
 
