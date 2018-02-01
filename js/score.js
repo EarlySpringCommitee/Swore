@@ -8,9 +8,21 @@ window.onload = () => {
     if (location.hostname == 'localhost' || username == '始春延期') {
         getLocalScore()
         snackbar("目前取用本地資料")
+        buttonClick()
     } else {
         ajaxGetScore(username, password, school)
+        buttonClick()
     }
+    $('a[href="login.html"]').attr('href', '#logout').text('登出')
+    $('a[href="#logout"]').click(function() {
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('password');
+        sessionStorage.removeItem('school');
+        returnToLogin("您已成功登出", "success")
+    })
+}
+
+function buttonClick() {
     $(".ts.accordion .button").addClass('spring')
     $(".ts.accordion .ts.buttons .ts.button").click(function() {
         if ($(this).hasClass('spring')) {
@@ -23,13 +35,6 @@ window.onload = () => {
         $("#score").html(owo)
     })
     console.log(12)
-    $('a[href="login.html"]').attr('href', '#logout').text('登出')
-    $('a[href="#logout"]').click(function() {
-        sessionStorage.removeItem('username');
-        sessionStorage.removeItem('password');
-        sessionStorage.removeItem('school');
-        returnToLogin("您已成功登出", "success")
-    })
 }
 
 function returnToLogin(message, icon) {
