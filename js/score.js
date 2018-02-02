@@ -5,7 +5,7 @@ window.onload = () => {
     if (!username || !password || !school) {
         returnToLogin("請先登入", "error")
     }
-    if (location.hostname == 'localhost' || username == '始春延期') {
+    if (username == '始春延期') {
         getLocalScore()
         snackbar("目前取用本地資料")
     } else {
