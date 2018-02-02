@@ -65,6 +65,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     }
                 } else {
                     let score = examData[subject];
+                    if (score == undefined) score = '';
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength;
                     td.name = 'colspan-' + td.colSpan.toString();
@@ -115,12 +116,14 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 let exam = trs[1].childNodes[i - deleteOffset].dataset.exam;
                 for (tr of trs){
                     if (tr.childNodes[1].name == undefined){
-                        console.log(tr.childNodes[1])
                         tr.removeChild(tr.childNodes[i - deleteOffset]);
                     }
                     else {
                         for (let td of tr.childNodes){
-                            if (td.dataset.exam == exam) td.colSpan = td.colSpan - 1;
+                            if (td.dataset.exam == exam) {
+                                if (td.colSpan == 1) tr.removeChild(td);
+                                else td.colSpan = td.colSpan - 1;
+                            }
                         }
                     }
                 }
