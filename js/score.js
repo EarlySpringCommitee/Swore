@@ -99,26 +99,22 @@ function showSelectorButtons(data) {
 }
 
 function scoreSelectionStatus() {
-    var owo = ''
-    var ouo = 0
-    var qaq = $("#scoreSelections .button").length
-    for (i = 1; i < qaq + 1; i++) {
-        if ($("#scoreSelections .button:nth-child(" + i + ")").hasClass('spring')) {
-            var owo = owo + "1"
-            var ouo = ouo + 1
-        } else { var owo = owo + "0" }
+    var sendSelections = ''
+    var countButtons = $("#scoreSelections .button").length
+    for (i = 1; i < countButtons + 1; i++) {
+        if ($("#scoreSelections .button:nth-child(" + i + ")").hasClass('spring')) var sendSelections = sendSelections + "1"
+        else var sendSelections = sendSelections + "0"
     }
-    if (owo == '00000') {
+    if (sendSelections == '00000') {
         $("#scoreSelections .button").addClass('spring')
-        var ouo = 5
-        var owo = '11111'
+        var sendSelections = '11111'
         swal({
             title: "錯誤",
             text: '篩選器無法全部關閉',
             icon: 'error',
         })
     }
-    return owo
+    return sendSelections
 }
 
 function examSelectionStatus() {
