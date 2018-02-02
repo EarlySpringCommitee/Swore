@@ -99,24 +99,27 @@ details>.content {
 }
 
 details .ts.buttons {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 details .ts.button {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 5 - 1rem);
     margin-bottom: 15px !important;
     transition: box-shadow 0.25s linear;
 }
 
+@media (max-width: 767px) {
+    details .ts.button {
+        width: calc(100% - 1rem);
+    }
+}
+
 details .ts.button.spring {
-    box-shadow: 0 0 19px #87bdff;
-}
-
-details .ts.button.spring i:before {
-    content: "\f06e";
-}
-
-details .ts.button:not(.spring) i:before {
-    content: "\f070";
+    box-shadow: 0 0 3px #9173ff;
 }
 
 details .ts.button:not(.spring) {
@@ -132,6 +135,14 @@ details .ts.button:not(.spring):hover {
 details .ts.button:not(.spring):active {
     border-color: #a4a4a4 !important;
     background-color: #a4a4a4 !important;
+}
+
+details .ts.button.spring i:before {
+    content: "\f058";
+}
+
+details .ts.button:not(.spring) i:before {
+    content: "\f10c";
 }
 
 #score tr:nth-child(1)>td {
@@ -203,18 +214,18 @@ details .ts.button:not(.spring):active {
     Footer
 ==========*/
 
+footer p {
+    color: white;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
 footer.ts.slate.slate.slate {
-    margin-top: 50px;
+    margin-top: 12.5vh;
     box-shadow: 0 -1px 10px 1px rgba(167, 167, 167, 0.46) !important;
 }
 
 footer .grid .column:nth-child(2) {
     text-align: right;
-}
-
-footer p {
-    color: white;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 

@@ -3,7 +3,7 @@ window.onload = () => {
         password = window.sessionStorage["password"],
         school = window.sessionStorage["school"]
     if (!username || !password || !school) {
-        returnToLogin()
+        returnToLogin("請先登入", "error")
     }
     if (location.hostname == 'localhost' || username == '始春延期') {
         getLocalScore()
