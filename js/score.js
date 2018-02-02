@@ -29,8 +29,8 @@ function buttonClick() {
             $(this).addClass('spring')
         }
         let score = ajaxdata['s']
-        let owo = createScoreTable('s', score, scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
-        $("#score").html(owo)
+        let scoreTable = createScoreTable('s', score, scoreSelectionStatus(), examSelectionStatus(), subjectSelectionStatus());
+        $("#score").html(scoreTable)
     })
 }
 
