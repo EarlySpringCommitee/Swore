@@ -68,7 +68,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                     if (score == undefined) score = '';
                     let td = newRow.appendChild(document.createElement('td'));
                     td.colSpan = rowScoreLength;
-                    td.name = 'colspan-' + td.colSpan.toString();
+                    td.dataset.colspan = td.colSpan;
                     td.dataset.exam = exam;
                     td.appendChild(document.createTextNode(score));
                     if (highlight) {
@@ -101,7 +101,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
                 let isNotNull = false;
                 for (let j of [...Array(trs.length).keys()]){
                     if (j == 0) continue;
-                    if (trs[j].childNodes[1].name != undefined) break;
+                    if (trs[j].childNodes[1].dataset.colspan != undefined) break;
                     let td = trs[j].childNodes[i];
                     if (td.childNodes[0].nodeValue != "") {
                         isNotNull = true;
@@ -115,7 +115,7 @@ function createScoreTable(mode, data, scoreSelections = '11111', examSelections 
             for (let i of queryDeletes){
                 let exam = trs[1].childNodes[i - deleteOffset].dataset.exam;
                 for (tr of trs){
-                    if (tr.childNodes[1].name == undefined){
+                    if (tr.childNodes[1].dataset.colspan == undefined){
                         tr.removeChild(tr.childNodes[i - deleteOffset]);
                     }
                     else {
