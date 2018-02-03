@@ -43,10 +43,9 @@ $(document).ready(function() {
         $("header#welcome .header").attr('style', 'display: none;')
         $("header#welcome .description").attr('style', 'display: none;')
         $("header#welcome .action").attr('style', 'display: none;')
-        $("header#welcome").attr('id', '')
         $("#intro").attr('style', 'opacity: 0;')
 
-        setTimeout("document.location.href = \"login.html\"", 170)
+        setTimeout("document.location.href = \"login.html\"", 250)
 
     });
 });
