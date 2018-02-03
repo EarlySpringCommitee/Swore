@@ -1,40 +1,42 @@
-include _header.pug
-body
-    header.ts.heading.vertically.padded.fluid.slate
-        .image
-            script headerImg()
-        .ts.container
-            h1.ts.center.aligned.header.fadeIn Swore
-    include _nav.pug
-    script(src='/js/login.js')
-    .ts.container.fadeIn
-        h1.ts.center.aligned.header 嗨！
-            .sub.header 登入您的帳號並開始使用
-        #login.ts.centered.secondary.segment
-            .ts.form
-                .field
-                    label 學校
-                    .ts.stackable.dropdowns
-                        //-select.ts.basic.dropdown
-                            option 天龍國
-                            option 北部
-                            option 中部
-                        select#userSchool.ts.basic.dropdown(name='userSchool',required)
-                            option(value='HCHS') 新竹高中
-                            option(value='TLHC') 斗六家商
-                            option(value='CHGSH') 彰化女中
-                            option(value='PTGSH') 屏東女中
-                            option(value='PIAN') 洨安雙語高中
-                .field
-                    label 帳號 / 學號
-                    input(type='text', placeholder='', id='userID', name='userID',required)
-                .field
-                    label 密碼 / 身分證字號
-                    input(type='password', placeholder='', id='userPASS', name='userPASS',required)
-                .field
-                    .ts.checkbox(data-tooltip='請勿在公用電腦上勾選此選項')
-                        input(type='checkbox', id='isRmbPwd', name='isRmbPwd')
-                        label(for='isRmbPwd') 記住我
-                form(role='form',onsubmit='return check()',action='score.html',method='get')
-                    button.ts.positive.fluid.button(type='submit') 登入
-include _footer.pug
+doctype html
+html
+    include _header.pug
+    body
+        header.ts.heading.vertically.padded.fluid.slate
+            .image
+                script headerImg()
+            .ts.container
+                h1.ts.center.aligned.header.fadeIn Swore
+        include _nav.pug
+        script(src='/js/login.js')
+        .ts.container.fadeIn
+            h1.ts.center.aligned.header 嗨！
+                .sub.header 登入您的帳號並開始使用
+            #login.ts.centered.secondary.segment
+                .ts.form
+                    .field
+                        label 學校
+                        .ts.stackable.dropdowns
+                            //-select.ts.basic.dropdown
+                                option 天龍國
+                                option 北部
+                                option 中部
+                            select#userSchool.ts.basic.dropdown(name='userSchool',required)
+                                option(value='HCHS') 新竹高中
+                                option(value='TLHC') 斗六家商
+                                option(value='CHGSH') 彰化女中
+                                option(value='PTGSH') 屏東女中
+                                option(value='PIAN') 洨安雙語高中
+                    .field
+                        label 帳號 / 學號
+                        input(type='text', placeholder='', id='userID', name='userID',required)
+                    .field
+                        label 密碼 / 身分證字號
+                        input(type='password', placeholder='', id='userPASS', name='userPASS',required)
+                    .field
+                        .ts.checkbox(data-tooltip='請勿在公用電腦上勾選此選項')
+                            input(type='checkbox', id='isRmbPwd', name='isRmbPwd')
+                            label(for='isRmbPwd') 記住我
+                    form(role='form',onsubmit='return check()',action='score.html',method='get')
+                        button.ts.positive.fluid.button(type='submit') 登入
+    include _footer.pug

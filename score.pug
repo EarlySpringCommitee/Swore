@@ -1,58 +1,60 @@
-include _header.pug
-body
-    header.ts.heading.vertically.padded.fluid.slate
-        .image
-            script headerImg()
-        .ts.container
-            h1.ts.center.aligned.header.fadeIn Swore
-    include _nav.pug
-    #loader.ts.active.dimmer
-        .ts.indeterminate.text.loader hen 忙
-    .ts.container.fadeIn
-        h3.ts.header 基本資料
-            .sub.header 確定資料是不是你的（？
-        .ts.stackable.three.cards
-            mixin card(header,icon,studentInfo)
-                .ts.card
-                    .content
-                        .header= header
-                        .description(data-student=studentInfo)
-                    .symbol
-                        i.icon(class=icon)
-            +card('學號','qrcode','studentId')
-            +card('姓名','user','name')
-            +card('班級','student','class')
-        br
-        details.ts.accordion
-            summary
-                i.dropdown.icon
-                |  篩選器
-            .content
-                h5.ts.header 分類
-                #scoreSelections.ts.separated.primary.compact.labeled.icon.buttons
-                    mixin button(name)
-                        .ts.button
-                            i.icon 
-                            =name
-                    +button('成績')
-                    +button('平均')
-                    +button('排名')
-                    +button('類組排')
-                    +button('校排')
-                h5.ts.header 考試
-                #examSelections.ts.separated.primary.compact.labeled.icon.buttons
-                h5.ts.header 科目
-                #subjectSelections.ts.separated.primary.compact.labeled.icon.buttons
-                br
-        h3.ts.header 成績
-            .sub.header 若無法看見完整內容可利用 
-                kbd Shift+滾輪
-                |  或是手指來移動
-        br
-        .gs.scroll
-            table#score.ts.definition.compact.striped.celled.table
-        br
-    script(src='./js/JsonToTable.js')
-    script(src='./js/data.json')
-    script(src='./js/score.js')
-    include _footer.pug
+doctype html
+html
+    include _header.pug
+    body
+        header.ts.heading.vertically.padded.fluid.slate
+            .image
+                script headerImg()
+            .ts.container
+                h1.ts.center.aligned.header.fadeIn Swore
+        include _nav.pug
+        #loader.ts.active.dimmer
+            .ts.indeterminate.text.loader hen 忙
+        .ts.container.fadeIn
+            h3.ts.header 基本資料
+                .sub.header 確定資料是不是你的（？
+            .ts.stackable.three.cards
+                mixin card(header,icon,studentInfo)
+                    .ts.card
+                        .content
+                            .header= header
+                            .description(data-student=studentInfo)
+                        .symbol
+                            i.icon(class=icon)
+                +card('學號','qrcode','studentId')
+                +card('姓名','user','name')
+                +card('班級','student','class')
+            br
+            details.ts.accordion
+                summary
+                    i.dropdown.icon
+                    |  篩選器
+                .content
+                    h5.ts.header 分類
+                    #scoreSelections.ts.separated.primary.compact.labeled.icon.buttons
+                        mixin button(name)
+                            .ts.button
+                                i.icon 
+                                =name
+                        +button('成績')
+                        +button('平均')
+                        +button('排名')
+                        +button('類組排')
+                        +button('校排')
+                    h5.ts.header 考試
+                    #examSelections.ts.separated.primary.compact.labeled.icon.buttons
+                    h5.ts.header 科目
+                    #subjectSelections.ts.separated.primary.compact.labeled.icon.buttons
+                    br
+            h3.ts.header 成績
+                .sub.header 若無法看見完整內容可利用 
+                    kbd Shift+滾輪
+                    |  或是手指來移動
+            br
+            .gs.scroll
+                table#score.ts.definition.compact.striped.celled.table
+            br
+        script(src='./js/JsonToTable.js')
+        script(src='./js/data.json')
+        script(src='./js/score.js')
+        include _footer.pug

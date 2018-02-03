@@ -17,94 +17,94 @@
     <script src="./js/ripple.min.js"></script>
     <script src="./js/script.js"></script>
   </head>
+  <body>
+    <header class="ts heading vertically padded fluid slate">
+      <div class="image">
+        <script>headerImg()</script>
+      </div>
+      <div class="ts container">
+        <h1 class="ts center aligned header fadeIn">Swore</h1>
+      </div>
+    </header>
+    <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
+      <div class="ts container"><a class="item" href="index.html">首頁</a><a class="item" href="score.html">成績</a>
+        <div class="right fitted item"><a class="item" href="login.html">登入</a></div>
+      </div>
+    </div>
+    <div class="ts active dimmer" id="loader">
+      <div class="ts indeterminate text loader">hen 忙</div>
+    </div>
+    <div class="ts container fadeIn">
+      <h3 class="ts header">基本資料
+        <div class="sub header">確定資料是不是你的（？</div>
+      </h3>
+      <div class="ts stackable three cards">
+                <div class="ts card">
+                  <div class="content">
+                    <div class="header">學號</div>
+                    <div class="description" data-student="studentId"></div>
+                  </div>
+                  <div class="symbol"><i class="icon qrcode"></i></div>
+                </div>
+                <div class="ts card">
+                  <div class="content">
+                    <div class="header">姓名</div>
+                    <div class="description" data-student="name"></div>
+                  </div>
+                  <div class="symbol"><i class="icon user"></i></div>
+                </div>
+                <div class="ts card">
+                  <div class="content">
+                    <div class="header">班級</div>
+                    <div class="description" data-student="class"></div>
+                  </div>
+                  <div class="symbol"><i class="icon student"></i></div>
+                </div>
+      </div><br>
+      <details class="ts accordion">
+        <summary><i class="dropdown icon"></i> 篩選器</summary>
+        <div class="content">
+          <h5 class="ts header">分類</h5>
+          <div class="ts separated primary compact labeled icon buttons" id="scoreSelections">
+                        <div class="ts button"><i class="icon"> </i>成績
+                        </div>
+                        <div class="ts button"><i class="icon"> </i>平均
+                        </div>
+                        <div class="ts button"><i class="icon"> </i>排名
+                        </div>
+                        <div class="ts button"><i class="icon"> </i>類組排
+                        </div>
+                        <div class="ts button"><i class="icon"> </i>校排
+                        </div>
+          </div>
+          <h5 class="ts header">考試</h5>
+          <div class="ts separated primary compact labeled icon buttons" id="examSelections"></div>
+          <h5 class="ts header">科目</h5>
+          <div class="ts separated primary compact labeled icon buttons" id="subjectSelections"></div><br>
+        </div>
+      </details>
+      <h3 class="ts header">成績
+        <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
+      </h3><br>
+      <div class="gs scroll">
+        <table class="ts definition compact striped celled table" id="score"></table>
+      </div><br>
+    </div>
+    <script src="./js/JsonToTable.js"></script>
+    <script src="./js/data.json"></script>
+    <script src="./js/score.js"></script>
+    <footer class="ts fluid slate">
+      <div class="image">
+        <script>headerImg()</script>
+      </div>
+      <div class="ts container">
+        <div class="ts grid">
+          <div class="stretched column"><img class="ts tiny image" src="https://avatars2.githubusercontent.com/u/35896048?s=320"></div>
+          <div class="column">
+            <p>TWScore 2018 ( ･ิϖ･ิ)</p><a class="ts compact inverted button" href="https://github.com/TWScore/Swore">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
-<body>
-  <header class="ts heading vertically padded fluid slate">
-    <div class="image">
-      <script>headerImg()</script>
-    </div>
-    <div class="ts container">
-      <h1 class="ts center aligned header fadeIn">Swore</h1>
-    </div>
-  </header>
-  <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
-    <div class="ts container"><a class="item" href="index.html">首頁</a><a class="item" href="score.html">成績</a>
-      <div class="right fitted item"><a class="item" href="login.html">登入</a></div>
-    </div>
-  </div>
-  <div class="ts active dimmer" id="loader">
-    <div class="ts indeterminate text loader">hen 忙</div>
-  </div>
-  <div class="ts container fadeIn">
-    <h3 class="ts header">基本資料
-      <div class="sub header">確定資料是不是你的（？</div>
-    </h3>
-    <div class="ts stackable three cards">
-            <div class="ts card">
-              <div class="content">
-                <div class="header">學號</div>
-                <div class="description" data-student="studentId"></div>
-              </div>
-              <div class="symbol"><i class="icon qrcode"></i></div>
-            </div>
-            <div class="ts card">
-              <div class="content">
-                <div class="header">姓名</div>
-                <div class="description" data-student="name"></div>
-              </div>
-              <div class="symbol"><i class="icon user"></i></div>
-            </div>
-            <div class="ts card">
-              <div class="content">
-                <div class="header">班級</div>
-                <div class="description" data-student="class"></div>
-              </div>
-              <div class="symbol"><i class="icon student"></i></div>
-            </div>
-    </div><br>
-    <details class="ts accordion">
-      <summary><i class="dropdown icon"></i> 篩選器</summary>
-      <div class="content">
-        <h5 class="ts header">分類</h5>
-        <div class="ts separated primary compact labeled icon buttons" id="scoreSelections">
-                    <div class="ts button"><i class="icon"> </i>成績
-                    </div>
-                    <div class="ts button"><i class="icon"> </i>平均
-                    </div>
-                    <div class="ts button"><i class="icon"> </i>排名
-                    </div>
-                    <div class="ts button"><i class="icon"> </i>類組排
-                    </div>
-                    <div class="ts button"><i class="icon"> </i>校排
-                    </div>
-        </div>
-        <h5 class="ts header">考試</h5>
-        <div class="ts separated primary compact labeled icon buttons" id="examSelections"></div>
-        <h5 class="ts header">科目</h5>
-        <div class="ts separated primary compact labeled icon buttons" id="subjectSelections"></div><br>
-      </div>
-    </details>
-    <h3 class="ts header">成績
-      <div class="sub header">若無法看見完整內容可利用 <kbd>Shift+滾輪</kbd> 或是手指來移動</div>
-    </h3><br>
-    <div class="gs scroll">
-      <table class="ts definition compact striped celled table" id="score"></table>
-    </div><br>
-  </div>
-  <script src="./js/JsonToTable.js"></script>
-  <script src="./js/data.json"></script>
-  <script src="./js/score.js"></script>
-  <footer class="ts fluid slate">
-    <div class="image">
-      <script>headerImg()</script>
-    </div>
-    <div class="ts container">
-      <div class="ts grid">
-        <div class="stretched column"><img class="ts tiny image" src="https://avatars2.githubusercontent.com/u/35896048?s=320"></div>
-        <div class="column">
-          <p>TWScore 2018 ( ･ิϖ･ิ)</p><a class="ts compact inverted button" href="https://github.com/TWScore/Swore">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</body>
