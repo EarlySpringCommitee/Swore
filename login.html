@@ -1,1 +1,87 @@
-<!DOCTYPE html><html><head><title>Swore</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" rel="stylesheet"><link href="//xiaoan.tocas-ui.com/ts.xiaoan.min.css" rel="stylesheet"><link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"><link href="./css/style.css" rel="stylesheet"><link href="./css/ripple.min.css" rel="stylesheet"><link href="./icon/Swore.png" rel="shortcut icon"><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script><script src="//xiaoan.tocas-ui.com/ts.xiaoan.min.js"></script><script src="./js/ripple.min.js"></script><script src="./js/script.js"></script></head><body><header class="ts heading vertically padded fluid slate"><div class="image"><script>headerImg()</script></div><div class="ts container"><h1 class="ts center aligned header fadeIn">Swore</h1></div></header><div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav"><div class="ts container"><a class="item" href="index.html">首頁</a><a class="item" href="score.html">成績</a><div class="right fitted item"><a class="item" href="login.html">登入</a></div></div></div><script src="/js/login.js"></script><div class="ts container fadeIn"><h1 class="ts center aligned header">嗨！<div class="sub header">登入您的帳號並開始使用</div></h1><div class="ts centered secondary segment" id="login"><div class="ts form"><div class="field"><label>學校</label><div class="ts stackable dropdowns"><select class="ts basic dropdown" id="userSchool" name="userSchool" required><option value="HCHS">新竹高中</option><option value="TLHC">斗六家商</option><option value="CHGSH">彰化女中</option><option value="PTGSH">屏東女中</option><option value="PIAN">洨安雙語高中</option></select></div></div><div class="field"><label>帳號 / 學號</label><input type="text" placeholder="" id="userID" name="userID" required></div><div class="field"><label>密碼 / 身分證字號</label><input type="password" placeholder="" id="userPASS" name="userPASS" required></div><div class="field"><div class="ts checkbox" data-tooltip="請勿在公用電腦上勾選此選項"><input type="checkbox" id="isRmbPwd" name="isRmbPwd"><label for="isRmbPwd">記住我</label></div></div><form role="form" onsubmit="return check()" action="score.html" method="get"><button class="ts positive fluid button" type="submit">登入</button></form></div></div></div></body><footer class="ts fluid slate"><div class="image"><script>headerImg()</script></div><div class="ts container"><div class="ts grid"><div class="stretched column"><img class="ts tiny image" src="https://avatars2.githubusercontent.com/u/35896048?s=320"></div><div class="column"><p>TWScore 2018 ( ･ิϖ･ิ)</p><a class="ts compact basic inverted button" href="https://github.com/TWScore/Swore">GitHub</a></div></div></div></footer></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Swore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" rel="stylesheet">
+    <link href="//xiaoan.tocas-ui.com/ts.xiaoan.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/ripple.min.css" rel="stylesheet">
+    <link href="./icon/Swore.png" rel="shortcut icon">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
+    <script src="//xiaoan.tocas-ui.com/ts.xiaoan.min.js"></script>
+    <script src="./js/ripple.min.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <header class="ts heading vertically padded fluid slate">
+      <div class="image">
+        <script>headerImg()</script>
+      </div>
+      <div class="ts container">
+        <h1 class="ts center aligned header fadeIn">Swore</h1>
+      </div>
+    </header>
+    <div class="ts basic fluid borderless menu horizontally inverted scrollable" id="nav">
+      <div class="ts container"><a class="item" href="index.html">首頁</a><a class="item" href="score.html">成績</a>
+        <div class="right fitted item"><a class="item" href="login.html">登入</a></div>
+      </div>
+    </div>
+    <script src="/js/login.js"></script>
+    <div class="ts container fadeIn">
+      <h1 class="ts center aligned header">嗨！
+        <div class="sub header">登入您的帳號並開始使用</div>
+      </h1>
+      <div class="ts centered secondary segment" id="login">
+        <div class="ts form">
+          <div class="field">
+            <label>學校</label>
+            <div class="ts stackable dropdowns">
+              <select class="ts basic dropdown" id="userSchool" name="userSchool" required>
+                <option value="HCHS">新竹高中</option>
+                <option value="TLHC">斗六家商</option>
+                <option value="CHGSH">彰化女中</option>
+                <option value="PTGSH">屏東女中</option>
+                <option value="PIAN">洨安雙語高中</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>帳號 / 學號</label>
+            <input type="text" placeholder="" id="userID" name="userID" required>
+          </div>
+          <div class="field">
+            <label>密碼 / 身分證字號</label>
+            <input type="password" placeholder="" id="userPASS" name="userPASS" required>
+          </div>
+          <div class="field">
+            <div class="ts checkbox" data-tooltip="請勿在公用電腦上勾選此選項">
+              <input type="checkbox" id="isRmbPwd" name="isRmbPwd">
+              <label for="isRmbPwd">記住我</label>
+            </div>
+          </div>
+          <form role="form" onsubmit="return check()" action="score.html" method="get">
+            <button class="ts positive fluid button" type="submit">登入</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="ts fluid slate">
+    <div class="image">
+      <script>headerImg()</script>
+    </div>
+    <div class="ts container">
+      <div class="ts grid">
+        <div class="stretched column"><img class="ts tiny image" src="https://avatars2.githubusercontent.com/u/35896048?s=320"></div>
+        <div class="column">
+          <p>TWScore 2018 ( ･ิϖ･ิ)</p><a class="ts compact basic inverted button" href="https://github.com/TWScore/Swore">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
