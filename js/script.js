@@ -40,9 +40,7 @@ $(document).ready(function() {
         padding: 5em 2em !important;
         padding-bottom: calc(4em + 48px) !important;
         font-size: 14px;`)
-        $("header#welcome .header").attr('style', 'display: none;')
-        $("header#welcome .description").attr('style', 'display: none;')
-        $("header#welcome .action").attr('style', 'display: none;')
+        $("header#welcome .header,header#welcome .description,header#welcome .action").attr('style', 'display: none;')
         $("#intro").attr('style', 'opacity: 0;')
 
         setTimeout("document.location.href = \"login.html\"", 250)
