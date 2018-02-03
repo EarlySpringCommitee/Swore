@@ -32,7 +32,7 @@ body
                     label 密碼 / 身分證字號
                     input(type='password', placeholder='', id='userPASS', name='userPASS',required)
                 .field
-                    .ts.checkbox
+                    .ts.checkbox(data-tooltip='請勿在公用電腦上勾選此選項')
                         input(type='checkbox', id='isRmbPwd', name='isRmbPwd')
                         label(for='isRmbPwd') 記住我
                 form(role='form',onsubmit='return check()',action='score.html',method='get')
