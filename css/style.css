@@ -31,6 +31,7 @@ header#welcome {
     font-size: 24px;
     height: calc(100vh + 48px);
     padding: 30vh 1em !important;
+    transition: .25s;
 }
 
 header#welcome .action .button {
