@@ -2,6 +2,7 @@ window.onload = () => {
     var username = window.sessionStorage["username"],
         password = window.sessionStorage["password"],
         school = window.sessionStorage["school"]
+    console.log(username, password, school)
     if (!username || !password || !school) {
         returnToLogin("請先登入", "error")
     }
@@ -45,22 +46,26 @@ function returnToLogin(message, icon) {
 
 function ajaxGetScore(username, password, school) {
     $("#loader .loader").text('請求中')
-    $.post("https://api.twscore.ml/" + school, {
-        account: username,
-        password: password,
-        mode: "is",
-    }, function(data, status) {
-        console.log(status)
-        console.log(data)
-        ajaxdata = data
-        let owo = createScoreTable('s', ajaxdata['s']);
-        $("#score").html(owo)
-        fillInfoIn(ajaxdata['i'])
-        $("#loader").removeClass('active')
-        showSelectorButtons(ajaxdata)
-    }).fail(function() {
-        returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
-    });
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    var params = new URLSearchParams();
+    params.append('account', username);
+    params.append('password', password);
+    params.append('mode', 'is');
+    axios.post("https://api.twscore.ml/" + school, params)
+        .then(function(response) {
+            console.log(response.data)
+            if (response.data == "Account or password Error!")
+                returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
+            ajaxdata = response.data
+            let owo = createScoreTable('s', ajaxdata['s']);
+            $("#score").html(owo)
+            fillInfoIn(ajaxdata['i'])
+            $("#loader").removeClass('active')
+            showSelectorButtons(ajaxdata)
+        })
+        .catch(function(error) {
+            returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
+        });
 
 }
 
