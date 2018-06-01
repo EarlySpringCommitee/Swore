@@ -63,7 +63,7 @@ function ajaxGetScore(username, password, school) {
             showSelectorButtons(ajaxdata)
         })
         .catch(function(error) {
-            returnToLogin("請求錯誤\n" + error, "error")
+            returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
         });
 
 }
