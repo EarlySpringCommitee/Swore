@@ -51,7 +51,7 @@ function ajaxGetScore(username, password, school) {
     params.append('account', username);
     params.append('password', password);
     params.append('mode', 'is');
-    axios.post("https://api.twscore.ml/" + school, params)
+    axios.post("https://nas.gnehs.net:444/" + school, params)
         .then(function(response) {
             if (response.data.error == "Account or password Error!")
                 returnToLogin("填入的帳號或密碼可能有誤，請檢查後再次嘗試送出", "error")
