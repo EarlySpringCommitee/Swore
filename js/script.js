@@ -29,6 +29,9 @@ $(document).ready(function() {
         setTimeout("document.location.href = \"login.html\"", 250)
 
     });
+    $("[type=\"submit\"]").click(function() {
+        $(this).addClass("loading")
+    })
 });
 
 function headerImg() {
