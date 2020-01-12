@@ -67,7 +67,7 @@ function check() {
     document.location.href = "score.html"
 }
 //將 function 函數賦值給 onload 對象
-window.onload = function() {
+window.onload = function () {
     //從 Cookie 獲取到使用者名稱
     var username = getCookie("This is username");
     var school = getCookie("School");
@@ -111,13 +111,13 @@ window.onload = function() {
         sessionStorage.removeItem('loginMessageIcon');
     }
     //自動填入洨安高中
-    $("select#userSchool").change(function() {
+    $("select#userSchool").change(function () {
         $("#userPASS").attr('type', 'password')
         if ($(this).val() == 'PIAN') {
-            document.getElementById("userID").value = "521069"
-            document.getElementById("userPASS").value = "spring_never_comes"
+            document.getElementById("userID").value = "19800301"
+            document.getElementById("userPASS").value = "test"
             document.getElementById("isRmbPwd").checked = true
-            $("#userPASS").attr('type', 'text')
+            //$("#userPASS").attr('type', 'text')
         }
     });
 }
