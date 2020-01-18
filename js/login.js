@@ -89,10 +89,10 @@ window.onload = function () {
         var userSchool = document.getElementById('userSchool');
         for (var i, j = 0; i = userSchool.options[j]; j++) {
             if (i.value == 'PIAN') {
-                document.getElementById("userID").value = "521069"
-                document.getElementById("userPASS").value = "spring_never_comes"
+                document.getElementById("userID").value = "19800301"
+                document.getElementById("userPASS").value = "test"
                 document.getElementById("isRmbPwd").checked = true
-                $("#userPASS").attr('type', 'text')
+                //$("#userPASS").attr('type', 'text')
             }
             if (i.value == school) {
                 userSchool.selectedIndex = j;
